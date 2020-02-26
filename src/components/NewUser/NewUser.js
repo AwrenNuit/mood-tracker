@@ -19,7 +19,7 @@ export default function NewUser() {
         </p>
         <p>
           Building new habits can be difficult, and replacing old habits that are no longer serving you can be 
-          an even bigger challenge. However, when things like mood or sleep are tracked patterns can emerge. 
+          an even bigger challenge. However, patterns can emerge when things like mood or sleep are tracked. 
           Seeing and acknowledging these patterns can be the first step on the path towards being the version 
           of yourself that you want to be. Your future self with thank you.
         </p>
