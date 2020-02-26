@@ -9,6 +9,7 @@ export default function Signup() {
   const history = useHistory();
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [mailingList, setMailingList] = useState(false);
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
@@ -26,6 +27,8 @@ export default function Signup() {
             <input className="login-register-input" type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="email" />
             <input className="login-register-input" type="text" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
             <input className="login-register-input" type="text" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="confirm password" />
+            {/* for newsletter & insights? */}
+            <input className="login-register-input" type="checkbox" onChange={(e)=>setMailingList(e.target.value)} />
             <button className="login-register-btn" type="submit">Sign Up</button>
           </form>
           <hr className="login-register-hr" />
