@@ -4,6 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
+import rootReducer from './redux/reducers/index';
+import rootSaga from './redux/sagas/index';
 import App from './components/App/App';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,10 +16,10 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
   [sagaMiddleware];
 
 const store = createStore(
-  // rootReducer,
+  rootReducer,
   applyMiddleware(...middlewareList),
 );
 
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
