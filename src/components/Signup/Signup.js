@@ -20,10 +20,10 @@ export default function Signup() {
       <h1>Sign Up</h1>
       <div className="login-register-content-container">
         <form onSubmit={handleSignup}>
-          <input type="text" onChange={setUsername(e.target.value)} />
-          <input type="text" onChange={setEmail(e.target.value)} />
-          <input type="text" onChange={setPassword(e.target.value)} />
-          <input type="text" onChange={setConfirmPassword(e.target.value)} />
+          <input type="text" onChange={(e)=>setUsername(e.target.value)} />
+          <input type="text" onChange={(e)=>setEmail(e.target.value)} />
+          <input type="text" onChange={(e)=>setPassword(e.target.value)} />
+          <input type="text" onChange={(e)=>setConfirmPassword(e.target.value)} />
           <button type="submit">Sign Up</button>
         </form>
         <hr />
