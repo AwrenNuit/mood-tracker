@@ -1,0 +1,23 @@
+.login-register-btn {
+  margin: 30px;
+}
+
+.login-register-heading {
+  margin-bottom: 70px;
+}
+
+.login-register-hr {
+  width: 80%;
+  color: lightgrey;
+}
+
+.login-register-input {
+  display: block;
+  margin: 20px;
+}
+
+.login-register-main-container {
+  max-width: 400px;
+  height: 600px;
+  background-color: lightyellow;
+}

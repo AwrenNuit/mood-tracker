@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import '../Login/Login.css';
 
 export default function Signup() {
 
@@ -16,19 +17,21 @@ export default function Signup() {
   const pushToLoginPage = () => history.push('/');
 
   return(
-    <div className="login-register-main-container">
-      <h1>Sign Up</h1>
-      <div className="login-register-content-container">
-        <form onSubmit={handleSignup}>
-          <input type="text" onChange={(e)=>setUsername(e.target.value)} />
-          <input type="text" onChange={(e)=>setEmail(e.target.value)} />
-          <input type="text" onChange={(e)=>setPassword(e.target.value)} />
-          <input type="text" onChange={(e)=>setConfirmPassword(e.target.value)} />
-          <button type="submit">Sign Up</button>
-        </form>
-        <hr />
-        <button onClick={pushToLoginPage}>cancel</button>
+    <center>
+      <div className="login-register-main-container">
+        <h1 className="login-register-heading">Sign Up</h1>
+        <div className="login-register-content-container">
+          <form onSubmit={handleSignup}>
+            <input className="login-register-input" type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="username" />
+            <input className="login-register-input" type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="email" />
+            <input className="login-register-input" type="text" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
+            <input className="login-register-input" type="text" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="confirm password" />
+            <button className="login-register-btn" type="submit">Sign Up</button>
+          </form>
+          <hr className="login-register-hr" />
+          <button className="login-register-btn" onClick={pushToLoginPage}>cancel</button>
+        </div>
       </div>
-    </div>
+    </center>
   );
 }
