@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
 
@@ -7,8 +7,15 @@ export default function Login() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const user = useSelector(state => state.login);
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+
+  useEffect(()=>{
+    if(user && user.id){
+      history.push('/home');
+    }
+  }, [history, user]);
 
   const handleLogin = e => {
     e.preventDefault();
