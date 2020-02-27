@@ -3,10 +3,12 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* login(action){
   try{
-    const response = yield axios.get('/api/user/login', action.payload);
+    const password = action.payload.password;
+    const username = action.payload.username;
+    const response = yield axios.get(`/api/user/login/${password}/${username}`);
     yield put({type: `SET_USER`, payload: response.data});
   } catch(error){
-    console.log('Error logging in.');
+    console.log('Error logging in.', error);
   }
 }
 
