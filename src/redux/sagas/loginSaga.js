@@ -6,7 +6,7 @@ function* login(action){
     const response = yield axios.get('/api/user/login', action.payload);
     yield put({type: `SET_USER`, payload: response.data});
   } catch(error){
-    alert('Error logging in.');
+    console.log('Error logging in.');
   }
 }
 

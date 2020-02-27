@@ -3,6 +3,6 @@ import login from './loginSaga';
 
 export default function* rootSaga() {
   yield all([
-    login,
+    login(),
   ]);
 }

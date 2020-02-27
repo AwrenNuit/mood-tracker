@@ -12,7 +12,7 @@ export default function Login() {
 
   const handleLogin = e => {
     e.preventDefault();
-    dispatch({type: `LOGIN`, payload: password, username});
+    dispatch({type: `LOGIN`, payload: {password, username}});
   }
 
   const pushToRegistrationPage = () => history.push('/signup');

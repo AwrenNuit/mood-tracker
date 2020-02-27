@@ -3,6 +3,8 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/login', (req, res)=>{
+  console.log('in there');
+  console.log(req.body);
   const id = [req.body.password, req.body.username];
   const sqlQuery = `SELECT * FROM user
                     WHERE password = $1 AND username = $2;`;
