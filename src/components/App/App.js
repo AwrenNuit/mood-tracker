@@ -8,13 +8,11 @@ import Signup from '../Signup/Signup';
 
 export default function App() {
   return (
-    <>
-      <Router>
-        <Route exact path='/' component={Login} />
-        <Route path='/settings' component={Settings} />
-        <Route path='/signup' component={Signup} />
-        <Route path='/welcome' component={NewUser} />
-      </Router>
-    </>
+    <Router>
+      <Route exact path='/' component={Login} />
+      <Route path='/settings' component={Settings} />
+      <Route path='/signup' component={Signup} />
+      <Route path='/welcome' component={NewUser} />
+    </Router>
   );
 }
