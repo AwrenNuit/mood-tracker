@@ -11,11 +11,6 @@
   color: lightgrey;
 }
 
-.login-register-input {
-  display: block;
-  margin: 20px;
-}
-
 .login-register-main-container {
   max-width: 400px;
   height: 600px;

@@ -31,14 +31,14 @@ export default function Settings() {
   }
 
   return(
-    <>
+    <center>
       <h1>Settings</h1>
       <h3>Personal</h3>
       <form onSubmit={updatePersonalDetails}>
-        <input type="text" value={username} onChange={setUsername} placeholder="username" />
-        <input type="text" value={email} onChange={setEmail} placeholder="email" />
-        <input type="password" value={password} onChange={setPassword} placeholder="password" />
-        <input type="password" value={confirmPassword} onChange={setConfirmPassword} placeholder="confirm password" />
+        <input className="text-input" type="text" value={username} onChange={setUsername} placeholder="username" />
+        <input className="text-input" type="text" value={email} onChange={setEmail} placeholder="email" />
+        <input className="text-input" type="password" value={password} onChange={setPassword} placeholder="password" />
+        <input className="text-input" type="password" value={confirmPassword} onChange={setConfirmPassword} placeholder="confirm password" />
         <button type="submit">Save</button>
       </form>
       <h3>Trackers</h3>
@@ -48,6 +48,6 @@ export default function Settings() {
         <input type="checkbox" /> Therapy
       <h3>Deactivate Account</h3>
         <button onClick={deactivateAccount}>Deactivate</button>
-    </>
+    </center>
   );
 }

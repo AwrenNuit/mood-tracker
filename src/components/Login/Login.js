@@ -20,8 +20,8 @@ export default function Login() {
         <h1 className="login-register-heading">Mood Tracker</h1>
         <div className="login-register-content-container">
           <form onSubmit={handleLogin}>
-            <input className="login-register-input" type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="username" />
-            <input className="login-register-input" type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
+            <input className="text-input" type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="username" />
+            <input className="text-input" type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
             <button className="login-register-btn" type="submit">Log In</button>
           </form>
           <hr className="login-register-hr" />

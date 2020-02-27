@@ -2,10 +2,19 @@ body {
   font-family: 'Arima Madurai';
 }
 
+h1, h3{
+  text-decoration: underline;
+}
+
 .main-container {
   max-width: 800px;
   min-height: 400px;
   padding: 30px;
   background-color: lightyellow;
   box-shadow: 5px 5px 10px grey;
+}
+
+.text-input {
+  display: block;
+  margin: 20px;
 }
