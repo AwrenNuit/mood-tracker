@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
-app.use('/api/login', userRoute);
+app.use('/api/user', userRoute);
 
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);
