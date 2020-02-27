@@ -13,7 +13,12 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
-  const handleSignup = () => password === confirmPassword ? dispatch({type: `REGISTER`, payload: email, password, username}) : '';
+  const handleSignup = e => {
+    e.preventDefault();
+    if(password === confirmPassword){
+      dispatch({type: `REGISTER`, payload: email, password, username});
+    }
+  }
 
   const pushToLoginPage = () => history.push('/');
 

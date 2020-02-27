@@ -12,14 +12,15 @@ export default function Settings() {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
 
-  const deactivateAccount = id => {
+  const deactivateAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
     if(popup){
       dispatch({type: `DELETE_ACCOUNT`, payload: id});
     }
   }
 
-  const updatePersonalDetails = id => {
+  const updatePersonalDetails = e => {
+    e.preventDefault();
     if(password){
       if(password === confirmPassword){
         dispatch({type: `PUT_USER_PASSWORD`, payload: id, email, password, username});
@@ -34,13 +35,13 @@ export default function Settings() {
     <center>
       <h1>Settings</h1>
       <h3>Personal</h3>
-      <form onSubmit={updatePersonalDetails}>
-        <input className="text-input" type="text" value={username} onChange={setUsername} placeholder="username" />
-        <input className="text-input" type="text" value={email} onChange={setEmail} placeholder="email" />
-        <input className="text-input" type="password" value={password} onChange={setPassword} placeholder="password" />
-        <input className="text-input" type="password" value={confirmPassword} onChange={setConfirmPassword} placeholder="confirm password" />
-        <button type="submit">Save</button>
-      </form>
+        <form onSubmit={updatePersonalDetails}>
+          <input className="text-input" type="text" value={username} onChange={setUsername} placeholder="username" />
+          <input className="text-input" type="text" value={email} onChange={setEmail} placeholder="email" />
+          <input className="text-input" type="password" value={password} onChange={setPassword} placeholder="password" />
+          <input className="text-input" type="password" value={confirmPassword} onChange={setConfirmPassword} placeholder="confirm password" />
+          <button type="submit">Save</button>
+        </form>
       <h3>Trackers</h3>
         <input type="checkbox" /> Food
         <input type="checkbox" /> Movement
