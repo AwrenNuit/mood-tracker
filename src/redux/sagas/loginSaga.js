@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* login(action){
   try{
-    const response = yield axios.get('/api/user/login')
+    const response = yield axios.get('/api/user/login', action.payload);
     yield put({type: `SET_USER`, payload: response.data});
   } catch(error){
     alert('Error logging in.');
