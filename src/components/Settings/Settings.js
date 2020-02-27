@@ -46,8 +46,8 @@ export default function Settings() {
         <input type="checkbox" /> Movement
         <input type="checkbox" /> Sleep
         <input type="checkbox" /> Therapy
-      <h3>Deactivate Account</h3>
-        <button onClick={deactivateAccount}>Deactivate</button>
+      <h3>Close Account</h3>
+        <button onClick={deactivateAccount}>Close Account</button>
     </center>
   );
 }
