@@ -13,7 +13,7 @@ function* getTracker(action){
 
 function* putTracker(action){
   try{
-    yield axios.put(`/api/tracker`, {data: action.payload});
+    yield axios.put(`/api/tracker`, action.payload);
     yield put({type: `GET_TRACKER`});
   } catch(error){
     alert('Error updating tracker data.');
