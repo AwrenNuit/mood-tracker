@@ -9,7 +9,7 @@ export default function Login() {
   const history = useHistory();
   const user = useSelector(state => state.login);
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(()=>{
     if(user && user.id){
@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleLogin = e => {
     e.preventDefault();
-    dispatch({type: `LOGIN`, payload: {password, username}});
+    dispatch({type: `LOGIN`, payload: {password, email}});
   }
 
   const pushToRegistrationPage = () => history.push('/signup');
@@ -30,7 +30,7 @@ export default function Login() {
         <h1 className="login-register-heading">Mood Tracker</h1>
         <div className="login-register-content-container">
           <form onSubmit={handleLogin}>
-            <input className="text-input" type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="username" />
+            <input className="text-input" type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="email" />
             <input className="text-input" type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
             <button className="login-register-btn" type="submit">Log In</button>
           </form>
