@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
+import Navbar from '../Navbar/Navbar';
 import NewEntry from '../NewEntry/NewEntry';
 import NewUser from '../NewUser/NewUser';
 import Settings from '../Settings/Settings';
@@ -17,6 +18,7 @@ export default function App() {
       <Route path='/settings' component={Settings} />
       <Route path='/signup' component={Signup} />
       <Route path='/welcome' component={NewUser} />
+      <Navbar />
     </Router>
   );
 }
