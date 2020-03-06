@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './NewEntry.css';
 
 export default function NewEntry() {
 
@@ -24,30 +25,102 @@ export default function NewEntry() {
       <form onSubmit={handleSubmit}>
         <div>
           <h3>How are you feeling today?</h3>
-          <input type="radio" name="mood" value="Great" onChange={(e)=>setMood(e.target.value)} />Great
-          <input type="radio" name="mood" value="Meh" onChange={(e)=>setMood(e.target.value)} />Meh
-          <input type="radio" name="mood" value="Bad" onChange={(e)=>setMood(e.target.value)} />Bad
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Great" 
+            onChange={(e)=>setMood(e.target.value)} 
+          />Great
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Meh" 
+            onChange={(e)=>setMood(e.target.value)} 
+          />Meh
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Bad" 
+            onChange={(e)=>setMood(e.target.value)} 
+          />Bad
         </div>
         <div>
           <h3>Did you meet your food goals?</h3>
-          <input type="radio" name="mood" value="Yes" onChange={(e)=>setFood(e.target.value)} />Yes
-          <input type="radio" name="mood" value="No" onChange={(e)=>setFood(e.target.value)} />No
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Yes" 
+            onChange={(e)=>setFood(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="No" 
+            onChange={(e)=>setFood(e.target.value)} 
+          />No
         </div>
         <div>
           <h3>Did you meet your movement goals?</h3>
-          <input type="radio" name="mood" value="Yes" onChange={(e)=>setMovement(e.target.value)} />Yes
-          <input type="radio" name="mood" value="No" onChange={(e)=>setMovement(e.target.value)} />No
+          <input 
+            type="radio"
+            className="mood-radio" 
+            name="mood" 
+            value="Yes" 
+            onChange={(e)=>setMovement(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="No" 
+            onChange={(e)=>setMovement(e.target.value)} 
+          />No
         </div>
         <div>
           <h3>How well did you sleep last night?</h3>
-          <input type="radio" name="mood" value="Great" onChange={(e)=>setSleep(e.target.value)} />Great
-          <input type="radio" name="mood" value="Meh" onChange={(e)=>setSleep(e.target.value)} />Meh
-          <input type="radio" name="mood" value="Bad" onChange={(e)=>setSleep(e.target.value)} />Bad
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Great" 
+            onChange={(e)=>setSleep(e.target.value)} 
+          />Great
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Meh" 
+            onChange={(e)=>setSleep(e.target.value)} 
+          />Meh
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Bad" 
+            onChange={(e)=>setSleep(e.target.value)} 
+          />Bad
         </div>
         <div>
           <h3>Did you have therapy today?</h3>
-          <input type="radio" name="mood" value="Yes" onChange={(e)=>setTherapy(e.target.value)} />Yes
-          <input type="radio" name="mood" value="No" onChange={(e)=>setTherapy(e.target.value)} />No
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="Yes" 
+            onChange={(e)=>setTherapy(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="mood" 
+            value="No" 
+            onChange={(e)=>setTherapy(e.target.value)} 
+          />No
         </div>
         <div>
           <h3>Any additional thoughts?</h3>
