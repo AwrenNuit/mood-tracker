@@ -6,6 +6,10 @@ h1{
   text-decoration: underline;
 }
 
+.checkbox-container {
+  display: block;
+}
+
 .main-container {
   max-width: 800px;
   min-height: 400px;

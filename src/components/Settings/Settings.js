@@ -1,33 +1,48 @@
-import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export default function Settings() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const user = useSelector(state => state.login);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [food, setFood] = useState(false); // SET VIA REDUCER
+  const [movement, setMovement] = useState(false); // SET VIA REDUCER
+  const [sleep, setSleep] = useState(false); // SET VIA REDUCER
+  const [therapy, setTherapy] = useState(false); // SET VIA REDUCER
+
+  useEffect(()=>{
+    setEmail(user.email);
+    setPassword(user.password);
+  }, []);
 
   const deactivateAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
     if(popup){
-      dispatch({type: `DELETE_ACCOUNT`, payload: id});
+      dispatch({type: `DELETE_ACCOUNT`, payload: user.id});
+      // HANDLE LOGOUT AFTER DELETING ACCOUNT
+      history.push('/login');
     }
   }
 
   const updatePersonalDetails = e => {
     e.preventDefault();
     if(password){
-      if(password === confirmPassword){
-        dispatch({type: `PUT_USER_PASSWORD`, payload: id, email, password, username});
+      if(password === confirmPassword && email){
+        dispatch({type: `PUT_USER_PASSWORD`, payload: user.id, email, password});
+        // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
+      }
+      else {
+        // ON-SCREEN ERROR FOR MIS-MATCHED PASSWORDS
       }
     }
-    else {
-      dispatch({type: `PUT_USER_DETAILS`, payload: id, email, username});
+    else if(email){
+      dispatch({type: `PUT_USER_DETAILS`, payload: user.id, email});
+      // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
     }
   }
 
@@ -36,17 +51,62 @@ export default function Settings() {
       <h1>Settings</h1>
       <h3>Personal</h3>
         <form onSubmit={updatePersonalDetails}>
-          <input className="text-input" type="text" value={username} onChange={setUsername} placeholder="username" />
-          <input className="text-input" type="text" value={email} onChange={setEmail} placeholder="email" />
-          <input className="text-input" type="password" value={password} onChange={setPassword} placeholder="password" />
-          <input className="text-input" type="password" value={confirmPassword} onChange={setConfirmPassword} placeholder="confirm password" />
+          <input 
+            className="text-input" 
+            type="text" 
+            value={email} 
+            onChange={(e)=>setEmail(e.target.value)} 
+            placeholder="email" 
+          />
+          <input 
+            className="text-input" 
+            type="password" 
+            value={password} 
+            onChange={(e)=>setPassword(e.target.value)} 
+            placeholder="password" 
+          />
+          <input 
+            className="text-input" 
+            type="password" 
+            value={confirmPassword} 
+            onChange={(e)=>setConfirmPassword(e.target.value)} 
+            placeholder="confirm password" 
+          />
           <button type="submit">Save</button>
         </form>
       <h3>Trackers</h3>
-        <input type="checkbox" /> Food
-        <input type="checkbox" /> Movement
-        <input type="checkbox" /> Sleep
-        <input type="checkbox" /> Therapy
+        <div className="checkbox-container">
+          <input 
+            className="checkbox-input"
+            type="checkbox" 
+            value={food} 
+            onChange={()=>setFood(!food)} 
+          /> Food
+        </div>
+        <div className="checkbox-container">
+          <input 
+            className="checkbox-input"
+            type="checkbox" 
+            value={movement} 
+            onChange={()=>setMovement(!movement)} 
+          /> Movement
+        </div>
+        <div className="checkbox-container">
+          <input 
+            className="checkbox-input"
+            type="checkbox" 
+            value={sleep} 
+            onChange={()=>setSleep(!sleep)} 
+          /> Sleep
+        </div>
+        <div className="checkbox-container">
+          <input 
+            className="checkbox-input"
+            type="checkbox" 
+            value={therapy} 
+            onChange={()=>setTherapy(!therapy)} 
+          /> Therapy
+        </div>
       <h3>Close Account</h3>
         <button onClick={deactivateAccount}>Close Account</button>
     </center>
