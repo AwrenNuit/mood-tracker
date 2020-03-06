@@ -19,6 +19,7 @@ export default function Login() {
 
   const handleLogin = e => {
     e.preventDefault();
+    // CREATE VALIDATION FOR THIS //
     dispatch({type: `LOGIN`, payload: {password, email}});
     history.push('/home');
   }
