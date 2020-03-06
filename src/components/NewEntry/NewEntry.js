@@ -51,7 +51,7 @@ export default function NewEntry() {
         </div>
         <div>
           <h3>Any additional thoughts?</h3>
-          <textarea maxLength="300"></textarea>
+          <textarea cols="30" rows="6" maxLength="300"></textarea>
         </div>
         <button type="submit">Log</button>
       </form>
