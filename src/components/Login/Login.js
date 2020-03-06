@@ -20,6 +20,7 @@ export default function Login() {
   const handleLogin = e => {
     e.preventDefault();
     dispatch({type: `LOGIN`, payload: {password, email}});
+    history.push('/home');
   }
 
   const pushToRegistrationPage = () => history.push('/signup');
