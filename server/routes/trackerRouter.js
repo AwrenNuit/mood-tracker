@@ -15,7 +15,6 @@ router.get('/:id', (req, res)=>{
 });
 
 router.put('/', (req, res)=>{
-  console.log('req bdy -----------------------------', req.body);
   const id = [req.body.id, req.body.food, req.body.movement, req.body.sleep, req.body.therapy];
   const sqlQuery = `UPDATE tracker
                     SET food = $2, movement = $3, sleep = $4, therapy = $5
