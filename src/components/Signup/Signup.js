@@ -14,8 +14,9 @@ export default function Signup() {
 
   const handleSignup = e => {
     e.preventDefault();
-    if(password === confirmPassword){
+    if(password === confirmPassword && email){
       dispatch({type: `REGISTER`, payload: email, password, mailingList});
+      history.push('/welcome');
     }
   }
 
@@ -27,11 +28,34 @@ export default function Signup() {
         <h1 className="login-register-heading">Sign Up</h1>
         <div className="login-register-content-container">
           <form onSubmit={handleSignup}>
-            <input className="text-input" type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="email" />
-            <input className="text-input" type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
-            <input className="text-input" type="password" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="confirm password" />
+            <input 
+              className="text-input" 
+              type="text" 
+              value={email} 
+              onChange={(e)=>setEmail(e.target.value)} 
+              placeholder="email" 
+            />
+            <input 
+              className="text-input" 
+              type="password" 
+              value={password} 
+              onChange={(e)=>setPassword(e.target.value)} 
+              placeholder="password" 
+            />
+            <input 
+              className="text-input" 
+              type="password" 
+              value={confirmPassword} 
+              onChange={(e)=>setConfirmPassword(e.target.value)} 
+              placeholder="confirm password" 
+            />
             {/* for newsletter & insights? */}
-            <input className="text-input" type="checkbox" onChange={(e)=>setMailingList(e.target.value)} />
+            <input 
+              className="text-input" 
+              type="checkbox" 
+              value={mailingList} 
+              onChange={()=>setMailingList(!mailingList)} 
+            />
             <button className="login-register-btn" type="submit">Sign Up</button>
           </form>
           <hr className="login-register-hr" />
