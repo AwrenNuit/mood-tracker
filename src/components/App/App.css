@@ -1,8 +1,16 @@
-body {
-  font-family: 'Arima Madurai';
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  outline: none;
 }
 
-h1{
+body {
+  font-family: 'Arima Madurai';
+  height: 100vh;
+}
+
+h1 {
   text-decoration: underline;
 }
 
