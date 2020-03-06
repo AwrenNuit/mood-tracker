@@ -1,0 +1,35 @@
+.navbar-container {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  background-color: pink;
+  display: grid;
+  grid-template-areas: 'entries new settings logout';
+}
+
+.navbar-entries {
+  grid-area: 'entries';
+}
+
+.navbar-logout {
+  grid-area: 'logout';
+}
+
+.navbar-new {
+  grid-area: 'new';
+}
+
+.navbar-settings {
+  grid-area: 'settings';
+}
+
+.navbar-btn {
+  height: 45px;
+  width: 70px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
