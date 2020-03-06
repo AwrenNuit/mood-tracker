@@ -11,12 +11,11 @@ export default function Signup() {
   const [email, setEmail] = useState('');
   const [mailingList, setMailingList] = useState(false);
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
 
   const handleSignup = e => {
     e.preventDefault();
     if(password === confirmPassword){
-      dispatch({type: `REGISTER`, payload: email, password, username});
+      dispatch({type: `REGISTER`, payload: email, password, mailingList});
     }
   }
 
@@ -28,10 +27,9 @@ export default function Signup() {
         <h1 className="login-register-heading">Sign Up</h1>
         <div className="login-register-content-container">
           <form onSubmit={handleSignup}>
-            <input className="text-input" type="text" onChange={(e)=>setUsername(e.target.value)} placeholder="username" />
             <input className="text-input" type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="email" />
-            <input className="text-input" type="text" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
-            <input className="text-input" type="text" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="confirm password" />
+            <input className="text-input" type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="password" />
+            <input className="text-input" type="password" onChange={(e)=>setConfirmPassword(e.target.value)} placeholder="confirm password" />
             {/* for newsletter & insights? */}
             <input className="text-input" type="checkbox" onChange={(e)=>setMailingList(e.target.value)} />
             <button className="login-register-btn" type="submit">Sign Up</button>
