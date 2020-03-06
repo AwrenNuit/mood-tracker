@@ -7,6 +7,7 @@ export default function Settings() {
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
   const user = useSelector(state => state.login);
+  const tracker = useSelector(state => state.tracker);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,9 +17,25 @@ export default function Settings() {
   const [therapy, setTherapy] = useState(false); // SET VIA REDUCER
 
   useEffect(()=>{
+    dispatch({type: `GET_TRACKER`, payload: 1});
+  }, []);
+
+  useEffect(()=>{
     setEmail(user.email);
     setPassword(user.password);
-  }, []);
+    if(tracker.food){
+      setFood(tracker.food);
+    }
+    if(tracker.movement){
+      setMovement(tracker.movement);
+    }
+    if(tracker.sleep) {
+      setSleep(tracker.sleep);
+    }
+    if(tracker.therapy) {
+      setTherapy(tracker.therapy);
+    }
+  }, [user, tracker]);
 
   const deactivateAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
@@ -79,7 +96,7 @@ export default function Settings() {
           <input 
             className="checkbox-input"
             type="checkbox" 
-            value={food} 
+            checked={food}
             onChange={()=>setFood(!food)} 
           /> Food
         </div>
@@ -87,7 +104,7 @@ export default function Settings() {
           <input 
             className="checkbox-input"
             type="checkbox" 
-            value={movement} 
+            checked={movement}
             onChange={()=>setMovement(!movement)} 
           /> Movement
         </div>
@@ -95,7 +112,7 @@ export default function Settings() {
           <input 
             className="checkbox-input"
             type="checkbox" 
-            value={sleep} 
+            checked={sleep}
             onChange={()=>setSleep(!sleep)} 
           /> Sleep
         </div>
@@ -103,7 +120,7 @@ export default function Settings() {
           <input 
             className="checkbox-input"
             type="checkbox" 
-            value={therapy} 
+            checked={therapy} 
             onChange={()=>setTherapy(!therapy)} 
           /> Therapy
         </div>
