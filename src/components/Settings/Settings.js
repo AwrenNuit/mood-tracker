@@ -63,6 +63,19 @@ export default function Settings() {
     }
   }
 
+  const updateTracker = e => {
+    e.preventDefault();
+    const dataToSend = {
+      id: 1, 
+      food, 
+      movement, 
+      sleep, 
+      therapy
+    };
+    dispatch({type: `PUT_TRACKER`, payload: dataToSend});
+    // ON-SCREEN MESSAGE THAT TRACKERS SAVED
+  }
+
   return(
     <center>
       <h1>Settings</h1>
@@ -92,38 +105,41 @@ export default function Settings() {
           <button type="submit">Save</button>
         </form>
       <h3>Trackers</h3>
-        <div className="checkbox-container">
-          <input 
-            className="checkbox-input"
-            type="checkbox" 
-            checked={food}
-            onChange={()=>setFood(!food)} 
-          /> Food
-        </div>
-        <div className="checkbox-container">
-          <input 
-            className="checkbox-input"
-            type="checkbox" 
-            checked={movement}
-            onChange={()=>setMovement(!movement)} 
-          /> Movement
-        </div>
-        <div className="checkbox-container">
-          <input 
-            className="checkbox-input"
-            type="checkbox" 
-            checked={sleep}
-            onChange={()=>setSleep(!sleep)} 
-          /> Sleep
-        </div>
-        <div className="checkbox-container">
-          <input 
-            className="checkbox-input"
-            type="checkbox" 
-            checked={therapy} 
-            onChange={()=>setTherapy(!therapy)} 
-          /> Therapy
-        </div>
+        <form onSubmit={updateTracker}>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={food}
+              onChange={()=>setFood(!food)} 
+            /> Food
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={movement}
+              onChange={()=>setMovement(!movement)} 
+            /> Movement
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={sleep}
+              onChange={()=>setSleep(!sleep)} 
+            /> Sleep
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={therapy} 
+              onChange={()=>setTherapy(!therapy)} 
+            /> Therapy
+          </div>
+          <button type="submit">Save</button>
+        </form>
       <h3>Close Account</h3>
         <button onClick={deactivateAccount}>Close Account</button>
     </center>
