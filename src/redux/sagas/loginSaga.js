@@ -4,8 +4,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* login(action){
   try{
     const password = action.payload.password;
-    const username = action.payload.username;
-    const response = yield axios.get(`/api/user/login/${password}/${username}`);
+    const email = action.payload.email;
+    const response = yield axios.get(`/api/user/login/${password}/${email}`);
     yield put({type: `SET_USER`, payload: response.data});
   } catch(error){
     console.log('Error logging in.', error);
@@ -14,7 +14,7 @@ function* login(action){
 
 function* logout(action){
   try{
-    yield axios.get('/api/user/logout')
+    yield axios.get(`/api/user/logout`);
     yield put({type: `CLEAR_ALL`});
   } catch(error){
     alert('Error logging out.');
