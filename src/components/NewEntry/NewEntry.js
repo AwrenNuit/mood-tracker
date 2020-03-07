@@ -14,7 +14,7 @@ export default function NewEntry() {
   const [therapy, setTherapy] = useState('');
 
   const handleSubmit = () => {
-    dispatch({type: `POST_ENTRY`, payload: {mood, food, movement, sleep, therapy}});
+    dispatch({type: `POST_ENTRY`, payload: {id: 1, mood, food, movement, sleep, therapy}});
   }
 
   const pushToHome = () => history.push('/home');
@@ -52,14 +52,14 @@ export default function NewEntry() {
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="food" 
             value="Yes" 
             onChange={(e)=>setFood(e.target.value)} 
           />Yes
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="food" 
             value="No" 
             onChange={(e)=>setFood(e.target.value)} 
           />No
@@ -69,14 +69,14 @@ export default function NewEntry() {
           <input 
             type="radio"
             className="mood-radio" 
-            name="mood" 
+            name="movement" 
             value="Yes" 
             onChange={(e)=>setMovement(e.target.value)} 
           />Yes
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="movement" 
             value="No" 
             onChange={(e)=>setMovement(e.target.value)} 
           />No
@@ -86,21 +86,21 @@ export default function NewEntry() {
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="sleep" 
             value="Great" 
             onChange={(e)=>setSleep(e.target.value)} 
           />Great
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="sleep" 
             value="Meh" 
             onChange={(e)=>setSleep(e.target.value)} 
           />Meh
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="sleep" 
             value="Bad" 
             onChange={(e)=>setSleep(e.target.value)} 
           />Bad
@@ -110,14 +110,14 @@ export default function NewEntry() {
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="therapy" 
             value="Yes" 
             onChange={(e)=>setTherapy(e.target.value)} 
           />Yes
           <input 
             type="radio" 
             className="mood-radio"
-            name="mood" 
+            name="therapy" 
             value="No" 
             onChange={(e)=>setTherapy(e.target.value)} 
           />No
