@@ -51,7 +51,7 @@ export default function Settings() {
     e.preventDefault();
     if(password){
       if(password === confirmPassword && email){
-        dispatch({type: `PUT_USER_PASSWORD`, payload: 1, email, password});
+        dispatch({type: `PUT_USER_PASSWORD`, payload: {id: 1, email, password}});
         // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
       }
       else {
@@ -59,7 +59,7 @@ export default function Settings() {
       }
     }
     else if(email){
-      dispatch({type: `PUT_USER_DETAILS`, payload: 1, email});
+      dispatch({type: `PUT_USER_DETAILS`, payload: {id: 1, email}});
       // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
     }
   }
