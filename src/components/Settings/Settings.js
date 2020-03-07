@@ -38,10 +38,10 @@ export default function Settings() {
     }
   }, [user, tracker]);
 
-  const deactivateAccount = () => {
+  const closeAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
     if(popup){
-      dispatch({type: `DELETE_ACCOUNT`, payload: 1});
+      dispatch({type: `CLOSE_ACCOUNT`, payload: 1});
       // HANDLE LOGOUT AFTER DELETING ACCOUNT
       history.push('/login');
     }
@@ -142,7 +142,7 @@ export default function Settings() {
           <button type="submit">Save</button>
         </form>
       <h3>Close Account</h3>
-        <button onClick={deactivateAccount}>Close Account</button>
+        <button onClick={closeAccount}>Close Account</button>
     </center>
   );
 }
