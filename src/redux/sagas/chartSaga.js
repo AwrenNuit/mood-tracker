@@ -11,6 +11,15 @@ function* getChart(action){
   }
 }
 
+function* postEntry(action){
+  try{
+    yield axios.post(`/api/chart`, action.payload);
+    yield put({type: `GET_CHART`});
+  } catch(error){
+    alert('Error posting new entry.');
+  }
+}
+
 function* putChart(action){
   try{
     yield axios.put(`/api/chart`, {data: action.payload});
@@ -22,6 +31,7 @@ function* putChart(action){
 
 function* chartSaga() {
   yield takeLatest(`GET_CHART`, getChart);
+  yield takeLatest(`POST_ENTRY`, postEntry);
   yield takeLatest(`PUT_CHART`, putChart);
 }
   
