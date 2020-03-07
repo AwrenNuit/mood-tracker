@@ -26,6 +26,19 @@ router.get('/:id', (req, res)=>{
   });
 });
 
+router.put('/close', (req, res)=>{
+  const id = [req.body.id];
+  const sqlQuery = `UPDATE "user" 
+                    SET disabled = NOT disabled 
+                    WHERE id = $1;`;
+  pool.query(sqlQuery, id)
+  .then(()=>res.sendStatus(200))
+  .catch(error=>{
+    console.log('Error in /close PUT', error);
+    res.sendStatus(500);
+  });
+});
+
 router.put('/details', (req, res)=>{
   const id = [req.body.id, req.body.email];
   const sqlQuery = `UPDATE "user"
