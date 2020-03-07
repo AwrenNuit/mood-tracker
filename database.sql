@@ -6,7 +6,8 @@ CREATE TABLE "user" (
 	"id" SERIAL PRIMARY KEY,
 	"username" TEXT DEFAULT NULL,
 	"email" TEXT,
-	"password" TEXT
+	"password" TEXT,
+	"disabled" BOOLEAN DEFAULT false
 );
 
 CREATE TABLE "tracker" (
