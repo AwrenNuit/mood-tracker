@@ -19,7 +19,7 @@ export default function Settings() {
   useEffect(()=>{
     dispatch({type: `GET_TRACKER`, payload: 1});
     // DISPATCH FOR USER INFO
-  }, [dispatch]);
+  }, []);
 
   useEffect(()=>{
     setEmail(user.email); // SET
