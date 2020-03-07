@@ -6,23 +6,24 @@ export default function Settings() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
-  const user = useSelector(state => state.login);
+  const user = useSelector(state => state.login); // DISPATCH
   const tracker = useSelector(state => state.tracker);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [food, setFood] = useState(false); // SET VIA REDUCER
-  const [movement, setMovement] = useState(false); // SET VIA REDUCER
-  const [sleep, setSleep] = useState(false); // SET VIA REDUCER
-  const [therapy, setTherapy] = useState(false); // SET VIA REDUCER
+  const [food, setFood] = useState(false);
+  const [movement, setMovement] = useState(false);
+  const [sleep, setSleep] = useState(false);
+  const [therapy, setTherapy] = useState(false);
 
   useEffect(()=>{
     dispatch({type: `GET_TRACKER`, payload: 1});
-  }, []);
+    // DISPATCH FOR USER INFO
+  }, [dispatch]);
 
   useEffect(()=>{
-    setEmail(user.email);
-    setPassword(user.password);
+    setEmail(user.email); // SET
+    setPassword(user.password); // SET
     if(tracker.food){
       setFood(tracker.food);
     }
@@ -50,7 +51,7 @@ export default function Settings() {
     e.preventDefault();
     if(password){
       if(password === confirmPassword && email){
-        dispatch({type: `PUT_USER_PASSWORD`, payload: user.id, email, password});
+        dispatch({type: `PUT_USER_PASSWORD`, payload: 1, email, password});
         // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
       }
       else {
@@ -58,7 +59,7 @@ export default function Settings() {
       }
     }
     else if(email){
-      dispatch({type: `PUT_USER_DETAILS`, payload: user.id, email});
+      dispatch({type: `PUT_USER_DETAILS`, payload: 1, email});
       // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
     }
   }
