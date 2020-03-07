@@ -15,9 +15,8 @@ export default function NewEntry() {
 
   const handleSubmit = () => {
     dispatch({type: `POST_ENTRY`, payload: {id: 1, mood, food, movement, sleep, therapy}});
+    history.push('/home');
   }
-
-  const pushToHome = () => history.push('/home');
 
   return(
     <center>
@@ -128,7 +127,6 @@ export default function NewEntry() {
         </div>
         <button type="submit">Log</button>
       </form>
-      <button onClick={pushToHome}>back</button>
     </center>
   );
 }
