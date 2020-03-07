@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './NewEntry.css';
@@ -15,7 +15,7 @@ export default function NewEntry() {
   const [thoughts, setThoughts] = useState('');
 
   const handleSubmit = () => {
-    dispatch({type: `POST_ENTRY`, payload: {id: 1, mood, food, movement, sleep, therapy, thoughts}});
+    dispatch({type: `POST_ENTRY`, payload: {id: user.id, mood, food, movement, sleep, therapy, thoughts}});
     history.push('/home');
   }
 
