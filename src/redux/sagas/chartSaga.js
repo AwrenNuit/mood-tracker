@@ -14,7 +14,7 @@ function* getChart(action){
 function* postEntry(action){
   try{
     yield axios.post(`/api/chart`, action.payload);
-    yield put({type: `GET_CHART`});
+    yield put({type: `GET_CHART`, payload: action.payload.id});
   } catch(error){
     alert('Error posting new entry.');
   }
