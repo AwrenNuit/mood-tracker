@@ -12,9 +12,10 @@ export default function NewEntry() {
   const [movement, setMovement] = useState('');
   const [sleep, setSleep] = useState('');
   const [therapy, setTherapy] = useState('');
+  const [thoughts, setThoughts] = useState('');
 
   const handleSubmit = () => {
-    dispatch({type: `POST_ENTRY`, payload: {id: 1, mood, food, movement, sleep, therapy}});
+    dispatch({type: `POST_ENTRY`, payload: {id: 1, mood, food, movement, sleep, therapy, thoughts}});
     history.push('/home');
   }
 
@@ -123,7 +124,13 @@ export default function NewEntry() {
         </div>
         <div>
           <h3>Any additional thoughts?</h3>
-          <textarea cols="30" rows="6" maxLength="300"></textarea>
+          <textarea 
+            cols="30" 
+            rows="6" 
+            maxLength="300"
+            value={thoughts}
+            onChange={(e)=>setThoughts(e.target.value)}
+          />
         </div>
         <button type="submit">Log</button>
       </form>
