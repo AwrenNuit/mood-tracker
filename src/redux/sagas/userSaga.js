@@ -22,7 +22,7 @@ function* putDetails(action){
 
 function* putCloseAccount(action){
   try{
-    yield axios.put(`/api/user/disable`, action.payload);
+    yield axios.put(`/api/user/close`, action.payload);
     yield put({type: `LOGOUT`});
   } catch(error){
     console.log('Error closing account.', error);
