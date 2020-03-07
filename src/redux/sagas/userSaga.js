@@ -20,6 +20,15 @@ function* putDetails(action){
   }
 }
 
+function* putCloseAccount(action){
+  try{
+    yield axios.put(`/api/user/disable`, action.payload);
+    yield put({type: `LOGOUT`});
+  } catch(error){
+    console.log('Error closing account.', error);
+  }
+}
+
 function* putPassword(action){
   try{
     yield axios.put(`/api/user/password`, action.payload);
@@ -30,6 +39,7 @@ function* putPassword(action){
 }
 
 function* trackerSaga() {
+  yield takeLatest(`CLOSE_ACCOUNT`, putCloseAccount);
   yield takeLatest(`GET_USER_DETAILS`, getUserDetails);
   yield takeLatest(`PUT_USER_DETAILS`, putDetails);
   yield takeLatest(`PUT_USER_PASSWORD`, putPassword);
