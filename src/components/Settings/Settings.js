@@ -41,7 +41,7 @@ export default function Settings() {
   const closeAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
     if(popup){
-      dispatch({type: `CLOSE_ACCOUNT`, payload: 1});
+      dispatch({type: `CLOSE_ACCOUNT`, payload: {id: user.id}});
       // HANDLE LOGOUT AFTER DELETING ACCOUNT
       history.push('/login');
     }
