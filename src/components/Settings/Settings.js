@@ -12,9 +12,13 @@ export default function Settings() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [food, setFood] = useState(false);
+  const [meds, setMeds] = useState(false);
   const [movement, setMovement] = useState(false);
+  const [pain, setPain] = useState(false);
+  const [period, setPeriod] = useState(false);
   const [sleep, setSleep] = useState(false);
   const [therapy, setTherapy] = useState(false);
+  const [water, setWater] = useState(false);
 
   useEffect(()=>{
     dispatch({type: `GET_TRACKER`, payload: user.id});
@@ -67,11 +71,15 @@ export default function Settings() {
   const updateTracker = e => {
     e.preventDefault();
     const dataToSend = {
-      id: user.id, 
-      food, 
-      movement, 
-      sleep, 
-      therapy
+      id: user.id,
+      food,
+      meds,
+      movement,
+      pain,
+      period,
+      sleep,
+      therapy,
+      water
     };
     dispatch({type: `PUT_TRACKER`, payload: dataToSend});
     // ON-SCREEN MESSAGE THAT TRACKERS SAVED
@@ -119,9 +127,33 @@ export default function Settings() {
             <input 
               className="checkbox-input"
               type="checkbox" 
+              checked={meds}
+              onChange={()=>setMeds(!meds)} 
+            /> Meds
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
               checked={movement}
               onChange={()=>setMovement(!movement)} 
             /> Movement
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={pain}
+              onChange={()=>setPain(!pain)} 
+            /> Chronic Pain
+          </div>
+          <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={period}
+              onChange={()=>setPeriod(!period)} 
+            /> Periods
           </div>
           <div className="checkbox-container">
             <input 
@@ -138,6 +170,14 @@ export default function Settings() {
               checked={therapy} 
               onChange={()=>setTherapy(!therapy)} 
             /> Therapy
+            <div className="checkbox-container">
+            <input 
+              className="checkbox-input"
+              type="checkbox" 
+              checked={water}
+              onChange={()=>setWater(!water)} 
+            /> Water Intake
+          </div>
           </div>
           <button type="submit">Save</button>
         </form>
