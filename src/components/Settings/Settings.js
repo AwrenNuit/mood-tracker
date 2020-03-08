@@ -31,14 +31,26 @@ export default function Settings() {
     if(tracker.food){
       setFood(tracker.food);
     }
+    if(tracker.meds){
+      setMeds(tracker.meds);
+    }
     if(tracker.movement){
       setMovement(tracker.movement);
+    }
+    if(tracker.pain){
+      setPain(tracker.pain);
+    }
+    if(tracker.period){
+      setPeriod(tracker.period);
     }
     if(tracker.sleep) {
       setSleep(tracker.sleep);
     }
     if(tracker.therapy) {
       setTherapy(tracker.therapy);
+    }
+    if(tracker.water){
+      setWater(tracker.water);
     }
   }, [user, tracker]);
 
