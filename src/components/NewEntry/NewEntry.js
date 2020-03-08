@@ -197,7 +197,7 @@ export default function NewEntry() {
           />-2
         </div>
         <div>
-          <h3>Did you have your period?</h3>
+          <h3>Are you on your period?</h3>
           <input 
             type="radio"
             className="mood-radio" 
