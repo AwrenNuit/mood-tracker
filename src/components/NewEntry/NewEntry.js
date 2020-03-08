@@ -8,15 +8,36 @@ export default function NewEntry() {
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
   const user = useSelector(state => state.user);
+  const tracker = useSelector(state => state.tracker);
+  const [challenge, setChallenge] = useState('');
   const [food, setFood] = useState('');
+  const [meds, setMeds] = useState('');
   const [mood, setMood] = useState('');
   const [movement, setMovement] = useState('');
+  const [pain, setPain] = useState('');
+  const [period, setPeriod] = useState('');
   const [sleep, setSleep] = useState('');
   const [therapy, setTherapy] = useState('');
   const [thoughts, setThoughts] = useState('');
+  const [water, setWater] = useState('');
 
-  const handleSubmit = () => {
-    dispatch({type: `POST_ENTRY`, payload: {id: user.id, mood, food, movement, sleep, therapy, thoughts}});
+  const handleSubmit = e => {
+    e.preventDefault();
+    const dataToSend = {
+      id: user.id,
+      challenge,
+      food,
+      meds,
+      mood,
+      movement,
+      pain,
+      period,
+      sleep,
+      therapy,
+      thoughts,
+      water
+    };
+    dispatch({type: `POST_ENTRY`, payload: dataToSend});
     history.push('/home');
   }
 
@@ -49,6 +70,44 @@ export default function NewEntry() {
           />Bad
         </div>
         <div>
+          <h3>How challenging was today?</h3>
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="challenge" 
+            value={2} 
+            onChange={(e)=>setChallenge(e.target.value)} 
+          />+2
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="challenge" 
+            value={1} 
+            onChange={(e)=>setChallenge(e.target.value)} 
+          />+1
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="challenge" 
+            value={0} 
+            onChange={(e)=>setChallenge(e.target.value)} 
+          />0
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="challenge" 
+            value={-1}
+            onChange={(e)=>setChallenge(e.target.value)} 
+          />-1
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="challenge" 
+            value={-2} 
+            onChange={(e)=>setChallenge(e.target.value)} 
+          />-2
+        </div>
+        <div>
           <h3>Did you meet your food goals?</h3>
           <input 
             type="radio" 
@@ -66,6 +125,23 @@ export default function NewEntry() {
           />No
         </div>
         <div>
+          <h3>Did you take your meds?</h3>
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="meds" 
+            value="Yes" 
+            onChange={(e)=>setMeds(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="meds" 
+            value="No" 
+            onChange={(e)=>setMeds(e.target.value)} 
+          />No
+        </div>
+        <div>
           <h3>Did you meet your movement goals?</h3>
           <input 
             type="radio"
@@ -80,6 +156,61 @@ export default function NewEntry() {
             name="movement" 
             value="No" 
             onChange={(e)=>setMovement(e.target.value)} 
+          />No
+        </div>
+        <div>
+          <h3>How much chronic pain did you have?</h3>
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="pain" 
+            value={2} 
+            onChange={(e)=>setPain(e.target.value)} 
+          />+2
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="pain" 
+            value={1} 
+            onChange={(e)=>setPain(e.target.value)} 
+          />+1
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="pain" 
+            value={0} 
+            onChange={(e)=>setPain(e.target.value)} 
+          />0
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="pain" 
+            value={-1} 
+            onChange={(e)=>setPain(e.target.value)} 
+          />-1
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="pain" 
+            value={-2} 
+            onChange={(e)=>setPain(e.target.value)} 
+          />-2
+        </div>
+        <div>
+          <h3>Did you have your period?</h3>
+          <input 
+            type="radio"
+            className="mood-radio" 
+            name="period" 
+            value="Yes" 
+            onChange={(e)=>setPeriod(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="period" 
+            value="No" 
+            onChange={(e)=>setPeriod(e.target.value)} 
           />No
         </div>
         <div>
@@ -121,6 +252,23 @@ export default function NewEntry() {
             name="therapy" 
             value="No" 
             onChange={(e)=>setTherapy(e.target.value)} 
+          />No
+        </div>
+        <div>
+          <h3>Did you drink enough water?</h3>
+          <input 
+            type="radio"
+            className="mood-radio" 
+            name="water" 
+            value="Yes" 
+            onChange={(e)=>setWater(e.target.value)} 
+          />Yes
+          <input 
+            type="radio" 
+            className="mood-radio"
+            name="water" 
+            value="No" 
+            onChange={(e)=>setWater(e.target.value)} 
           />No
         </div>
         <div>
