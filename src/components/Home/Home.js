@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export default function Home() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const user = useSelector(state => state.user);
   const [date, setDate] = useState('');
 
   const pushToCharts = () => history.push('/charts');

@@ -1,5 +1,5 @@
-import React, { useCallback, useState, useReducer } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './NewEntry.css';
 
@@ -7,6 +7,7 @@ export default function NewEntry() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const user = useSelector(state => state.user);
   const [food, setFood] = useState('');
   const [mood, setMood] = useState('');
   const [movement, setMovement] = useState('');
