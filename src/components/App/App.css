@@ -15,8 +15,15 @@ h1 {
   margin: 30px;
 }
 
+h3 {
+  margin: 20px;
+}
+
 .checkbox-container {
+  width: 110px;
+  text-align: left;
   display: block;
+  margin: 15px 0;
 }
 
 .main-container {
