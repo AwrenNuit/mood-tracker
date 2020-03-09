@@ -20,10 +20,18 @@ h3 {
 }
 
 .checkbox-container {
-  width: 110px;
+  width: 120px;
   text-align: left;
   display: block;
   margin: 15px 0;
+}
+
+.checkbox-input {
+  margin-right: 10px;
+}
+
+.checkbox-label {
+  cursor: pointer;
 }
 
 .main-container {

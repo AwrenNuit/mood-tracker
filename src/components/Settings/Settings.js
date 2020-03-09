@@ -128,68 +128,92 @@ export default function Settings() {
       <h3>Trackers</h3>
         <form onSubmit={updateTracker}>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={food}
-              onChange={()=>setFood(!food)} 
-            /> Food
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={food}
+                onChange={()=>setFood(!food)} 
+              /> 
+              Food
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={meds}
-              onChange={()=>setMeds(!meds)} 
-            /> Meds
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={meds}
+                onChange={()=>setMeds(!meds)} 
+              /> 
+              Meds
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={movement}
-              onChange={()=>setMovement(!movement)} 
-            /> Movement
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={movement}
+                onChange={()=>setMovement(!movement)} 
+              /> 
+              Movement
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={pain}
-              onChange={()=>setPain(!pain)} 
-            /> Chronic Pain
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={pain}
+                onChange={()=>setPain(!pain)} 
+              /> 
+              Chronic Pain
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={period}
-              onChange={()=>setPeriod(!period)} 
-            /> Periods
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={period}
+                onChange={()=>setPeriod(!period)} 
+              /> 
+              Periods
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={sleep}
-              onChange={()=>setSleep(!sleep)} 
-            /> Sleep
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={sleep}
+                onChange={()=>setSleep(!sleep)} 
+              /> 
+              Sleep
+            </label>
           </div>
           <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={therapy} 
-              onChange={()=>setTherapy(!therapy)} 
-            /> Therapy
+            <label className="checkbox-label">
+              <input 
+                className="checkbox-input"
+                type="checkbox" 
+                checked={therapy} 
+                onChange={()=>setTherapy(!therapy)} 
+              /> 
+              Therapy
+            </label>
             <div className="checkbox-container">
-            <input 
-              className="checkbox-input"
-              type="checkbox" 
-              checked={water}
-              onChange={()=>setWater(!water)} 
-            /> Water Intake
-          </div>
+              <label className="checkbox-label">
+                <input 
+                  className="checkbox-input"
+                  type="checkbox" 
+                  checked={water}
+                  onChange={()=>setWater(!water)} 
+                /> 
+                Water Intake
+              </label>
+            </div>
           </div>
           <button type="submit">Save</button>
         </form>
