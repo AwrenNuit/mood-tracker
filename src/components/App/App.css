@@ -16,7 +16,8 @@ h1 {
 }
 
 h3 {
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .checkbox-container {
