@@ -51,7 +51,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-first"
+                className="mood-radio"
                 name="mood" 
                 value="Great" 
                 onChange={(e)=>setMood(e.target.value)} 
@@ -71,7 +71,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-last"
+                className="mood-radio"
                 name="mood" 
                 value="Bad" 
                 onChange={(e)=>setMood(e.target.value)} 
@@ -86,7 +86,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-first"
+                className="mood-radio"
                 name="challenge" 
                 value="Harder" 
                 onChange={(e)=>setChallenge(e.target.value)} 
@@ -106,7 +106,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-last"
+                className="mood-radio"
                 name="challenge" 
                 value="Easier" 
                 onChange={(e)=>setChallenge(e.target.value)} 
@@ -121,7 +121,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-first"
+                className="mood-radio"
                 name="food" 
                 value="Yes" 
                 onChange={(e)=>setFood(e.target.value)} 
@@ -131,7 +131,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-last"
+                className="mood-radio"
                 name="food" 
                 value="No" 
                 onChange={(e)=>setFood(e.target.value)} 
@@ -146,7 +146,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-first"
+                className="mood-radio"
                 name="meds" 
                 value="Yes" 
                 onChange={(e)=>setMeds(e.target.value)} 
@@ -156,7 +156,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-last"
+                className="mood-radio"
                 name="meds" 
                 value="No" 
                 onChange={(e)=>setMeds(e.target.value)} 
@@ -171,7 +171,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio"
-                className="mood-radio entry-radio-first" 
+                className="mood-radio" 
                 name="movement" 
                 value="Yes" 
                 onChange={(e)=>setMovement(e.target.value)} 
@@ -181,7 +181,7 @@ export default function NewEntry() {
             <label className="entry-radio-label">
               <input 
                 type="radio" 
-                className="mood-radio entry-radio-last"
+                className="mood-radio"
                 name="movement" 
                 value="No" 
                 onChange={(e)=>setMovement(e.target.value)} 
