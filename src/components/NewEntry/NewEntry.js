@@ -47,229 +47,293 @@ export default function NewEntry() {
       <form onSubmit={handleSubmit}>
         <div>
           <h3>How are you feeling today?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="mood" 
-            value="Great" 
-            onChange={(e)=>setMood(e.target.value)} 
-          />Great
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="mood" 
-            value="Meh" 
-            onChange={(e)=>setMood(e.target.value)} 
-          />Meh
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="mood" 
-            value="Bad" 
-            onChange={(e)=>setMood(e.target.value)} 
-          />Bad
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-first"
+                name="mood" 
+                value="Great" 
+                onChange={(e)=>setMood(e.target.value)} 
+              />
+              Great
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="mood" 
+                value="Meh" 
+                onChange={(e)=>setMood(e.target.value)} 
+              />
+              Meh
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-last"
+                name="mood" 
+                value="Bad" 
+                onChange={(e)=>setMood(e.target.value)} 
+              />
+              Bad
+            </label>
+          </div>
         </div>
         <div>
           <h3>How challenging was today?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="challenge" 
-            value={2} 
-            onChange={(e)=>setChallenge(e.target.value)} 
-          />+2
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="challenge" 
-            value={1} 
-            onChange={(e)=>setChallenge(e.target.value)} 
-          />+1
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="challenge" 
-            value={0} 
-            onChange={(e)=>setChallenge(e.target.value)} 
-          />0
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="challenge" 
-            value={-1}
-            onChange={(e)=>setChallenge(e.target.value)} 
-          />-1
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="challenge" 
-            value={-2} 
-            onChange={(e)=>setChallenge(e.target.value)} 
-          />-2
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-first"
+                name="challenge" 
+                value="Harder" 
+                onChange={(e)=>setChallenge(e.target.value)} 
+              />
+              Harder
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="challenge" 
+                value="Average"
+                onChange={(e)=>setChallenge(e.target.value)} 
+              />
+              Average
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-last"
+                name="challenge" 
+                value="Easier" 
+                onChange={(e)=>setChallenge(e.target.value)} 
+              />
+              Easier
+            </label>
+          </div>
         </div>
         <div>
           <h3>Did you meet your food goals?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="food" 
-            value="Yes" 
-            onChange={(e)=>setFood(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="food" 
-            value="No" 
-            onChange={(e)=>setFood(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-first"
+                name="food" 
+                value="Yes" 
+                onChange={(e)=>setFood(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-last"
+                name="food" 
+                value="No" 
+                onChange={(e)=>setFood(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>Did you take your meds?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="meds" 
-            value="Yes" 
-            onChange={(e)=>setMeds(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="meds" 
-            value="No" 
-            onChange={(e)=>setMeds(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-first"
+                name="meds" 
+                value="Yes" 
+                onChange={(e)=>setMeds(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-last"
+                name="meds" 
+                value="No" 
+                onChange={(e)=>setMeds(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>Did you meet your movement goals?</h3>
-          <input 
-            type="radio"
-            className="mood-radio" 
-            name="movement" 
-            value="Yes" 
-            onChange={(e)=>setMovement(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="movement" 
-            value="No" 
-            onChange={(e)=>setMovement(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio"
+                className="mood-radio entry-radio-first" 
+                name="movement" 
+                value="Yes" 
+                onChange={(e)=>setMovement(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio entry-radio-last"
+                name="movement" 
+                value="No" 
+                onChange={(e)=>setMovement(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>How much chronic pain did you have?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="pain" 
-            value={2} 
-            onChange={(e)=>setPain(e.target.value)} 
-          />+2
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="pain" 
-            value={1} 
-            onChange={(e)=>setPain(e.target.value)} 
-          />+1
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="pain" 
-            value={0} 
-            onChange={(e)=>setPain(e.target.value)} 
-          />0
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="pain" 
-            value={-1} 
-            onChange={(e)=>setPain(e.target.value)} 
-          />-1
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="pain" 
-            value={-2} 
-            onChange={(e)=>setPain(e.target.value)} 
-          />-2
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="pain" 
+                value="More"
+                onChange={(e)=>setPain(e.target.value)} 
+              />
+              More
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="pain" 
+                value="Average"
+                onChange={(e)=>setPain(e.target.value)} 
+              />
+              Average
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="pain" 
+                value="Less" 
+                onChange={(e)=>setPain(e.target.value)} 
+              />
+              Less
+            </label>
+          </div>
         </div>
         <div>
           <h3>Are you on your period?</h3>
-          <input 
-            type="radio"
-            className="mood-radio" 
-            name="period" 
-            value="Yes" 
-            onChange={(e)=>setPeriod(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="period" 
-            value="No" 
-            onChange={(e)=>setPeriod(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio"
+                className="mood-radio" 
+                name="period" 
+                value="Yes" 
+                onChange={(e)=>setPeriod(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="period" 
+                value="No" 
+                onChange={(e)=>setPeriod(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>How well did you sleep last night?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="sleep" 
-            value="Great" 
-            onChange={(e)=>setSleep(e.target.value)} 
-          />Great
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="sleep" 
-            value="Meh" 
-            onChange={(e)=>setSleep(e.target.value)} 
-          />Meh
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="sleep" 
-            value="Bad" 
-            onChange={(e)=>setSleep(e.target.value)} 
-          />Bad
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="sleep" 
+                value="Great" 
+                onChange={(e)=>setSleep(e.target.value)} 
+              />
+              Great
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="sleep" 
+                value="Meh" 
+                onChange={(e)=>setSleep(e.target.value)} 
+              />
+              Meh
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="sleep" 
+                value="Bad" 
+                onChange={(e)=>setSleep(e.target.value)} 
+              />
+              Bad
+            </label>
+          </div>
         </div>
         <div>
           <h3>Did you have therapy today?</h3>
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="therapy" 
-            value="Yes" 
-            onChange={(e)=>setTherapy(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="therapy" 
-            value="No" 
-            onChange={(e)=>setTherapy(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="therapy" 
+                value="Yes" 
+                onChange={(e)=>setTherapy(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="therapy" 
+                value="No" 
+                onChange={(e)=>setTherapy(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>Did you drink enough water?</h3>
-          <input 
-            type="radio"
-            className="mood-radio" 
-            name="water" 
-            value="Yes" 
-            onChange={(e)=>setWater(e.target.value)} 
-          />Yes
-          <input 
-            type="radio" 
-            className="mood-radio"
-            name="water" 
-            value="No" 
-            onChange={(e)=>setWater(e.target.value)} 
-          />No
+          <div className="entry-radio-container">
+            <label className="entry-radio-label">
+              <input 
+                type="radio"
+                className="mood-radio" 
+                name="water" 
+                value="Yes" 
+                onChange={(e)=>setWater(e.target.value)} 
+              />
+              Yes
+            </label>
+            <label className="entry-radio-label">
+              <input 
+                type="radio" 
+                className="mood-radio"
+                name="water" 
+                value="No" 
+                onChange={(e)=>setWater(e.target.value)} 
+              />
+              No
+            </label>
+          </div>
         </div>
         <div>
           <h3>Any additional thoughts?</h3>

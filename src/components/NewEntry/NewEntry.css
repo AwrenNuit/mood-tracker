@@ -1,3 +1,21 @@
 .mood-radio {
-  margin: 30px 20px;
+  margin: 15px;
+}
+
+.entry-radio-container {
+  width: 110px;
+  text-align: left;
+  display: block;
+}
+
+.entry-radio-first {
+  margin-top: 30px;
+}
+
+.entry-radio-label {
+  cursor: pointer;
+}
+
+.entry-radio-last {
+  margin-bottom: 30px;
 }
