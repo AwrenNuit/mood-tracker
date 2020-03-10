@@ -6,7 +6,8 @@ export default function Settings() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
-  const user = useSelector(state => state.login); // DISPATCH
+  const user = useSelector(state => state.user);
+  const userDetails = useSelector(state => state.userDetails);
   const tracker = useSelector(state => state.tracker);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -22,8 +23,8 @@ export default function Settings() {
 
   useEffect(()=>{
     dispatch({type: `GET_TRACKER`, payload: user.id});
-    // DISPATCH FOR USER INFO
-  }, []);
+    dispatch({type: `GET_USER_DETAILS`, payload: user.id});
+  }, [dispatch]);
 
   useEffect(()=>{
     setEmail(user.email); // SET
