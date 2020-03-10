@@ -1,4 +1,4 @@
-const login = (state=[], action) => {
+const user = (state=[], action) => {
   switch (action.type) {
     case `SET_USER`:
       return action.payload;
@@ -9,4 +9,4 @@ const login = (state=[], action) => {
   }
 };
 
-export default login;
+export default user;
