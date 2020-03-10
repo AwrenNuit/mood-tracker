@@ -57,7 +57,7 @@ export default function Signup() {
             /> Show Password
             <input 
               className="text-input" 
-              type="password" 
+              type={confirmPasswordView} 
               value={confirmPassword} 
               onChange={(e)=>setConfirmPassword(e.target.value)} 
               placeholder="confirm password" 
