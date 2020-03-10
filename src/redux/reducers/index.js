@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux';
 import chart from './chartReducer';
-import login from './loginReducer';
+import loginMode from './loginModeReducer';
 import tracker from './trackerReducer';
+import user from './userReducer';
+import userDetails from './userDetailsReducer';
 
 const rootReducer = combineReducers({
   chart,
-  login,
+  loginMode,
   tracker,
+  user,
+  userDetails,
 });
 
 export default rootReducer;
