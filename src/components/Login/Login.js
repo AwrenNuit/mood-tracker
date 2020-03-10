@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
 
@@ -7,6 +7,7 @@ export default function Login() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const user = useSelector(state => state.user);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
