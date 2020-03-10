@@ -1,7 +1,8 @@
 const rejectUnauthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
+  if(req.isAuthenticated()){
     next();
-  } else {
+  } 
+  else {
     res.sendStatus(403);
   }
 };
