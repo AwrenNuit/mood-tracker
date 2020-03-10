@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
 
@@ -7,7 +7,6 @@ export default function Login() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
-  const user = useSelector(state => state.login);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
@@ -19,9 +18,13 @@ export default function Login() {
 
   const handleLogin = e => {
     e.preventDefault();
-    // CREATE VALIDATION FOR THIS //
-    dispatch({type: `LOGIN`, payload: {password, email}});
-    history.push('/home');
+    if(email && password){
+      dispatch({type: `LOGIN`, payload: {password, email}});
+      history.push('/home');
+    }
+    else {
+      alert(`Invalid email and/or password`);
+    }
   }
 
   const pushToRegistrationPage = () => history.push('/signup');
