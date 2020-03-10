@@ -1,13 +1,26 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+function* fetchUser(action) {
+  try {
+    const config = {
+      headers: {'Content-Type': `application/json`},
+      withCredentials: true,
+    };
+    const response = yield axios.get(`/api/user`, config);
+    yield put({ type: 'SET_USER', payload: response.data });
+  } catch (error) {
+    console.log('Error retrieving user.', error);
+  }
+}
+
 function* getUserDetails(action){
   try {
     const id = action.payload;
     const response = yield axios.get(`/api/user/${id}`);
-    yield put({type: `SET_USER`, payload: response.data});
+    yield put({type: `SET_USER_DETAILS`, payload: response.data});
   } catch(error) {
-    console.log('Error fetching user details.', error);
+    console.log('Error retrieving user details.', error);
   }
 }
 
@@ -38,11 +51,12 @@ function* putPassword(action){
   }
 }
 
-function* trackerSaga() {
+function* userSaga() {
   yield takeLatest(`CLOSE_ACCOUNT`, putCloseAccount);
+  yield takeLatest(`FETCH_USER`, fetchUser);
   yield takeLatest(`GET_USER_DETAILS`, getUserDetails);
   yield takeLatest(`PUT_USER_DETAILS`, putDetails);
   yield takeLatest(`PUT_USER_PASSWORD`, putPassword);
 }
-  
-export default trackerSaga;
+
+export default userSaga;
