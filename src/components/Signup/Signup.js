@@ -8,9 +8,11 @@ export default function Signup() {
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPasswordView, setConfirmPasswordView] = useState('password');
   const [email, setEmail] = useState('');
   const [mailingList, setMailingList] = useState(false);
   const [password, setPassword] = useState('');
+  const [passwordView, setPasswordView] = useState('password');
 
   const handleSignup = e => {
     e.preventDefault();
@@ -18,9 +20,16 @@ export default function Signup() {
       dispatch({type: `REGISTER`, payload: email, password, mailingList});
       history.push('/welcome');
     }
+    else {
+      alert(`Please check your passwords`);
+    }
   }
 
   const pushToLoginPage = () => history.push('/');
+
+  const toggleConfirmPasswordView = () => confirmPasswordView === 'password' ? setConfirmPasswordView('text') : setConfirmPasswordView('password');
+
+  const togglePasswordView = () => passwordView === 'password' ? setPasswordView('text') : setPasswordView('password');
 
   return(
     <center>
@@ -37,11 +46,15 @@ export default function Signup() {
             />
             <input 
               className="text-input" 
-              type="password" 
+              type={passwordView} 
               value={password} 
               onChange={(e)=>setPassword(e.target.value)} 
               placeholder="password" 
             />
+            <input 
+              type="checkbox" 
+              onChange={togglePasswordView} 
+            /> Show Password
             <input 
               className="text-input" 
               type="password" 
@@ -49,6 +62,10 @@ export default function Signup() {
               onChange={(e)=>setConfirmPassword(e.target.value)} 
               placeholder="confirm password" 
             />
+            <input 
+              type="checkbox" 
+              onChange={toggleConfirmPasswordView} 
+            /> Show Password
             {/* for newsletter & insights? */}
             <input 
               className="text-input" 
