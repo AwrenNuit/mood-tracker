@@ -1,29 +1,41 @@
-import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
 
-function* login(action){
-  try{
-    const password = action.payload.password;
-    const email = action.payload.email;
-    const response = yield axios.get(`/api/user/login/${password}/${email}`);
-    yield put({type: `SET_USER`, payload: response.data});
-  } catch(error){
+function* login(action) {
+  try {
+    yield put({type: `CLEAR_LOGIN_ERROR`});    
+    const config = {
+      headers: {'Content-Type': `application/json`},
+      withCredentials: true,
+    }
+    yield axios.post(`/api/user/login`, action.payload, config);
+    yield put({type: `FETCH_USER`});
+  } catch (error) {
     console.log('Error logging in.', error);
+    if (error.response.status === 401) {
+      yield put({type: `LOGIN_FAILED`});
+    } else {
+      yield put({type: `LOGIN_FAILED_NO_CODE`});
+    }
   }
 }
 
-function* logout(action){
-  try{
-    yield axios.get(`/api/user/logout`);
+function* logout(action) {
+  try {
+    const config = {
+      headers: {'Content-Type': `application/json`},
+      withCredentials: true,
+    }
+    yield axios.post(`/api/user/logout`, config);
     yield put({type: `CLEAR_ALL`});
-  } catch(error){
-    alert('Error logging out.');
+  } catch (error) {
+    console.log('Error logging out.', error);
   }
 }
 
 function* loginSaga() {
-  yield takeLatest(`LOGIN`, login);
-  yield takeLatest(`LOGOUT`, logout);
+  yield takeLatest('LOGIN', login);
+  yield takeLatest('LOGOUT', logout);
 }
-  
+
 export default loginSaga;
