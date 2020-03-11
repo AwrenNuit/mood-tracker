@@ -27,8 +27,8 @@ export default function Settings() {
   }, [dispatch]);
 
   useEffect(()=>{
-    setEmail(user.email); // SET
-    setPassword(user.password); // SET
+    setEmail(userDetails.email);
+    setPassword(userDetails.password);
     if(tracker.food){
       setFood(tracker.food);
     }
@@ -72,7 +72,7 @@ export default function Settings() {
         // ON-SCREEN MESSAGE THAT DETAILS WERE SAVED
       }
       else {
-        // ON-SCREEN ERROR FOR MIS-MATCHED PASSWORDS
+        alert(`Please check if passwords match`);
       }
     }
     else if(email){
