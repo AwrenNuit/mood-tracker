@@ -2,16 +2,8 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.get('/login/:password/:username', (req, res)=>{
-  const id = [req.params.password, req.params.email];
-  const sqlQuery = `SELECT * FROM "user"
-                    WHERE password = $1 AND email = $2;`;
-  pool.query(sqlQuery, id)
-  .then(result=>res.send(result.rows[0]))
-  .catch(error=>{
-    console.log('Error in /login GET', error);
-    res.sendStatus(500);
-  });
+router.get('/', (req, res) => {
+  res.send(req.user);
 });
 
 router.get('/:id', (req, res)=>{
