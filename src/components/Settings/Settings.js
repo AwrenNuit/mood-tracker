@@ -10,8 +10,10 @@ export default function Settings() {
   const userDetails = useSelector(state => state.userDetails);
   const tracker = useSelector(state => state.tracker);
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPasswordView, setConfirmPasswordView] = useState('password');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordView, setPasswordView] = useState('password');
   const [food, setFood] = useState(false);
   const [meds, setMeds] = useState(false);
   const [movement, setMovement] = useState(false);
@@ -64,6 +66,11 @@ export default function Settings() {
     }
   }
 
+  const toggleConfirmPasswordView = () => confirmPasswordView === 'password' ? setConfirmPasswordView('text') : setConfirmPasswordView('password');
+
+  const togglePasswordView = () => passwordView === 'password' ? setPasswordView('text') : setPasswordView('password');
+
+
   const updatePersonalDetails = e => {
     e.preventDefault();
     if(password){
@@ -112,18 +119,27 @@ export default function Settings() {
           />
           <input 
             className="text-input" 
-            type="password" 
+            type={passwordView} 
             value={password} 
             onChange={(e)=>setPassword(e.target.value)} 
             placeholder="password" 
           />
           <input 
+            type="checkbox" 
+            onChange={togglePasswordView} 
+          /> Show Password
+          <input 
             className="text-input" 
-            type="password" 
+            type={confirmPasswordView} 
             value={confirmPassword} 
             onChange={(e)=>setConfirmPassword(e.target.value)} 
             placeholder="confirm password" 
           />
+          <input 
+            type="checkbox" 
+            onChange={toggleConfirmPasswordView} 
+          /> Show Password
+          <br />
           <button type="submit">Save</button>
         </form>
       <h3>Trackers</h3>
