@@ -3,7 +3,7 @@ import React from 'react';
 export default function HomeCalendar(props) {
 
   const chooseMonth = () => {
-    switch(props){
+    switch(props.month){
       case 0:
         return 'January';
       case 1:

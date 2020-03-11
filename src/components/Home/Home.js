@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import HomeCalendar from '../HomeCalendar/HomeCalendar';
 
 export default function Home() {
 
@@ -23,7 +24,7 @@ export default function Home() {
     <center>
     <h1>Mood Tracker</h1>
       <div>
-        <p>PUT A CALENDAR WITH WHAT DAYS HAVE ENTRIES HERE</p>
+        <HomeCalendar month={new Date().getMonth()} />
         <p>PUT A RANDOM MINDFULNESS QUOTATION HERE</p>
       </div>
       <button onClick={pushToSettings}>Settings</button>
