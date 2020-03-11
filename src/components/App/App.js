@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { BrowserRouter as Router, Route, useLocation, Redirect } from 'react-router-dom';
 import './App.css';
 import Home from '../Home/Home';
@@ -8,6 +8,7 @@ import NewEntry from '../NewEntry/NewEntry';
 import NewUser from '../NewUser/NewUser';
 import Settings from '../Settings/Settings';
 import Signup from '../Signup/Signup';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function App() {
   
@@ -21,13 +22,13 @@ export default function App() {
 
   useEffect(() => {
     if(user && user.id){
-      dispatch({ type: 'GET_USER_DETAILS', payload: userID.id });
+      dispatch({ type: 'GET_USER_DETAILS', payload: user.id });
     }
   },[dispatch, user]);
 
   return (
     <Router>
-      {user ?
+      {user && user.id ?
         <Route exact path='/'>
           <Redirect to='/home' />
         </Route>
