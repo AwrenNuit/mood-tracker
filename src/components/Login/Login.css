@@ -11,6 +11,10 @@
   color: lightgrey;
 }
 
+.login-register-mailing-list {
+  margin-top: 20px;
+}
+
 .login-register-main-container {
   max-width: 400px;
   height: 600px;

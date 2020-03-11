@@ -66,13 +66,16 @@ export default function Signup() {
               type="checkbox" 
               onChange={toggleConfirmPasswordView} 
             /> Show Password
-            {/* for newsletter & insights? */}
-            <input 
-              className="text-input" 
-              type="checkbox" 
-              value={mailingList} 
-              onChange={()=>setMailingList(!mailingList)} 
-            />
+            <div className="login-register-mailing-list">
+              <label>
+                <input 
+                  type="checkbox" 
+                  value={mailingList} 
+                  onChange={()=>setMailingList(!mailingList)} 
+                />
+                Join mailing list?
+              </label>
+            </div>
             <button className="login-register-btn" type="submit">Sign Up</button>
           </form>
           <hr className="login-register-hr" />
