@@ -8,7 +8,6 @@ export default function NewEntry() {
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
   const user = useSelector(state => state.user);
-  const tracker = useSelector(state => state.tracker);
   const [challenge, setChallenge] = useState('');
   const [food, setFood] = useState('');
   const [meds, setMeds] = useState('');
