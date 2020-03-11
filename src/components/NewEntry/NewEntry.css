@@ -5,9 +5,9 @@
 .entry-radio-container {
   width: 110px;
   text-align: left;
-  display: block;
 }
 
 .entry-radio-label {
   cursor: pointer;
+  display: block;
 }
