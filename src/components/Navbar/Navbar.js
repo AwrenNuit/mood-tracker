@@ -15,19 +15,22 @@ export default function Navbar() {
   }
 
   return(
-    <div className="navbar-container">
-      <div className="navbar-tab navbar-entries">
-        <button className="navbar-btn" onClick={()=>{history.push('/home')}}>Entries</button>
+    <>
+      <div className="whitespace"></div>
+      <div className="navbar-container">
+        <div className="navbar-tab navbar-entries">
+          <button className="navbar-btn" onClick={()=>{history.push('/home')}}>Entries</button>
+        </div>
+        <div className="navbar-tab navbar-new">
+          <button className="navbar-btn" onClick={()=>{history.push('/new-entry')}}>New Entry</button>
+        </div>
+        <div className="navbar-tab navbar-settings">
+          <button className="navbar-btn" onClick={()=>{history.push('/settings')}}>Settings</button>
+        </div>
+        <div className="navbar-tab navbar-logout">
+          <button className="navbar-btn" onClick={handleLogout}>Logout</button>
+        </div>
       </div>
-      <div className="navbar-tab navbar-new">
-        <button className="navbar-btn" onClick={()=>{history.push('/new-entry')}}>New Entry</button>
-      </div>
-      <div className="navbar-tab navbar-settings">
-        <button className="navbar-btn" onClick={()=>{history.push('/settings')}}>Settings</button>
-      </div>
-      <div className="navbar-tab navbar-logout">
-        <button className="navbar-btn" onClick={handleLogout}>Logout</button>
-      </div>
-    </div>
+    </>
   );
 }
