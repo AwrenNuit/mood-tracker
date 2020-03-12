@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 const chartRoute = require('./routes/chartRouter');
+const quoteRoute = require('./routes/quoteRouter');
 const trackerRoute = require('./routes/trackerRouter');
 const userRoute = require('./routes/userRouter');
 
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 app.use('/api/chart', chartRoute);
+app.use('/api/quote', quoteRoute);
 app.use('/api/tracker', trackerRoute);
 app.use('/api/user', userRoute);
 
