@@ -9,6 +9,7 @@ export default function NewEntry() {
   const history = useHistory();
   const user = useSelector(state => state.user);
   const [challenge, setChallenge] = useState('');
+  const [date, setDate] = useState('');
   const [food, setFood] = useState('');
   const [meds, setMeds] = useState('');
   const [mood, setMood] = useState('');
@@ -25,6 +26,7 @@ export default function NewEntry() {
     const dataToSend = {
       id: user.id,
       challenge,
+      date,
       food,
       meds,
       mood,
@@ -45,6 +47,12 @@ export default function NewEntry() {
       <h1>New Entry</h1>
       <form onSubmit={handleSubmit}>
         <div>
+          <h3>Which date is this entry for?</h3>
+          <div>
+            <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} />
+          </div>
+        </div>
+        <div> 
           <h3>How are you feeling today?</h3>
           <div className="entry-radio-container">
             <label className="entry-radio-label">
