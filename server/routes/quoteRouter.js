@@ -6,7 +6,7 @@ router.get('/', (req, res)=>{
   const sqlQuery = `SELECT * FROM quote 
                     ORDER BY random() 
                     LIMIT 1;`;
-  pool.query(sqlQuery, id)
+  pool.query(sqlQuery)
   .then(result=>res.send(result.rows[0]))
   .catch(error=>{
     console.log('Error in / GET', error);
