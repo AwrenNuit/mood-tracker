@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import HomeCalendar from '../HomeCalendar/HomeCalendar';
 
@@ -7,7 +7,12 @@ export default function Home() {
 
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
+  const quote = useSelector(state => state.quote);
   const [date, setDate] = useState('');
+
+  useEffect(()=>{
+    dispatch({type: `GET_QUOTE`});
+  }, [dispatch]);
 
   const pushToCharts = () => history.push('/charts');
 
@@ -25,7 +30,9 @@ export default function Home() {
     <h1>Mood Tracker</h1>
       <div>
         <HomeCalendar month={new Date().getMonth()} />
-        <p>PUT A RANDOM MINDFULNESS QUOTATION HERE</p>
+        <div>
+          {quote}
+        </div>
       </div>
       <button onClick={pushToSettings}>Settings</button>
       <button onClick={pushToCharts}>Charts</button>
