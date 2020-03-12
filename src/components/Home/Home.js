@@ -27,19 +27,13 @@ export default function Home() {
 
   return(
     <center>
-    <h1>Mood Tracker</h1>
+      <h1>Mood Tracker</h1>
       <div>
         <HomeCalendar month={new Date().getMonth()} />
-        <div>
-          {quote}
-        </div>
       </div>
-      <button onClick={pushToSettings}>Settings</button>
-      <button onClick={pushToCharts}>Charts</button>
-      <form onSubmit={pushToNewEntry}>
-        <input type="date" onChange={(e)=>setDate(e.target.value)} />
-        <button type="submit">New Entry</button>
-      </form>
+      <div>
+        {quote.quote} {quote.source}
+      </div>
     </center>
   );
 }
