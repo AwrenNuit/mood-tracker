@@ -140,7 +140,7 @@ export default function Settings() {
             onChange={toggleConfirmPasswordView} 
           /> Show Password
           <br />
-          <button type="submit">Save</button>
+          <button className="btn-primary" type="submit">Save</button>
         </form>
       <h3>Trackers</h3>
         <form onSubmit={updateTracker}>
@@ -232,10 +232,10 @@ export default function Settings() {
               </label>
             </div>
           </div>
-          <button type="submit">Save</button>
+          <button className="btn-primary" type="submit">Save</button>
         </form>
       <h3>Close Account</h3>
-        <button onClick={closeAccount}>Close Account</button>
+        <button className="btn-destructive" onClick={closeAccount}>Close Account</button>
     </center>
   );
 }
