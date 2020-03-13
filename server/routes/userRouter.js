@@ -68,7 +68,7 @@ router.put('/details', (req, res)=>{
   });
 });
 
-router.put('/password', (req, res)=>{
+router.put('/password', rejectUnauthenticated, (req, res)=>{
   const id = [req.body.id, req.body.email, req.body.password];
   const sqlQuery = `UPDATE "user"
                     SET email = $2, password = $3
