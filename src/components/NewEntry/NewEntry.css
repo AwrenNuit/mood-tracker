@@ -6,6 +6,23 @@
   margin-top: 15px;
 }
 
+.entry-log-btn {
+  background-color: black;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  margin-top: 10px;
+  color: white;
+  font-size: 1.4em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.entry-log-btn:active {
+  box-shadow: 0 0 20px pink;
+}
+
 .entry-radio-container {
   width: 110px;
   text-align: left;

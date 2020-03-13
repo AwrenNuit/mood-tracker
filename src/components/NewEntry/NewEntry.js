@@ -370,7 +370,7 @@ export default function NewEntry() {
             onChange={(e)=>setThoughts(e.target.value)}
           />
         </div>
-        <button type="submit">Log</button>
+        <button className="entry-log-btn" type="submit">Log</button>
       </form>
     </center>
   );
