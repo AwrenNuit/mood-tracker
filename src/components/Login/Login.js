@@ -21,7 +21,6 @@ export default function Login() {
     e.preventDefault();
     if(email && password){
       dispatch({type: `LOGIN`, payload: {password, email}});
-      history.push('/home');
     }
     else {
       alert(`Invalid email and/or password`);
