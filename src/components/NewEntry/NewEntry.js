@@ -363,6 +363,7 @@ export default function NewEntry() {
         <div>
           <h3>Any additional thoughts?</h3>
           <textarea 
+            className="entry-textarea"
             cols="30" 
             rows="6" 
             maxLength="300"
