@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './NewEntry.css';
@@ -20,6 +20,24 @@ export default function NewEntry() {
   const [therapy, setTherapy] = useState('');
   const [thoughts, setThoughts] = useState('');
   const [water, setWater] = useState('');
+
+  useEffect(()=>{
+    const year = new Date().getFullYear();
+    let month, day;
+    if(new Date().getMonth()+1 < 10){
+      month = `0${new Date().getMonth()+1}`;
+    }
+    else {
+      month = new Date().getMonth()+1;
+    }
+    if(new Date().getDate() < 10){
+      day = `0${new Date().getDate()}`;
+    }
+    else {
+      day = new Date().getDate();
+    }
+    setDate(`${year}-${month}-${day}`);
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -48,7 +66,7 @@ export default function NewEntry() {
       <form onSubmit={handleSubmit}>
         <div>
           <h3>Which date is this entry for?</h3>
-          <div>
+          <div className="entry-date-container">
             <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} />
           </div>
         </div>
