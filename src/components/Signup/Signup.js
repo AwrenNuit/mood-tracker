@@ -17,7 +17,7 @@ export default function Signup() {
   const handleSignup = e => {
     e.preventDefault();
     if(password === confirmPassword && email){
-      dispatch({type: `REGISTER`, payload: email, password, mailingList});
+      dispatch({type: `REGISTER`, payload: {email, password, mailingList}});
       history.push('/welcome');
     }
     else {

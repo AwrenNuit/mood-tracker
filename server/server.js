@@ -22,5 +22,5 @@ app.use('/api/tracker', trackerRoute);
 app.use('/api/user', userRoute);
 
 app.listen(PORT, () => {
-    console.log('Listening on port: ', PORT);
+    console.log('Listening on port:', PORT);
 });

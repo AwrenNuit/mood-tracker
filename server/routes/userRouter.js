@@ -6,6 +6,7 @@ const { rejectUnauthenticated } = require('../modules/auth-middleware');
 const userStrategy = require('../strategies/user-strategy');
 
 router.get('/', (req, res) => {
+  console.log('GET---------------------------', req.user);
   res.send(req.user);
 });
 
@@ -33,7 +34,8 @@ router.post('/logout', (req, res)=>{
 router.post('/register', (req, res)=>{
   const id = [req.body.email, encryptLib.encryptPassword(req.body.password)];
   const sqlQuery = `INSERT INTO "user" (email, password)
-                    VALUES ($1, $2);`;
+                    VALUES ($1, $2)
+                    RETURNING id;`;
   pool.query(sqlQuery, id)
   .then(()=>res.sendStatus(201))
   .catch(error=>{

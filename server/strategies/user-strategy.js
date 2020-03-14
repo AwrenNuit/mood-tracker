@@ -14,25 +14,23 @@ passport.deserializeUser((id, done)=>{
     if(user){
       delete user.password;
       done(null, user);
-    } 
-    else {
+    } else {
       done(null, null);
     }
   })
   .catch((error)=>{
-    console.log('Error deserializing user.', error);
     done(error, null);
   });
 });
 
 passport.use('local', new LocalStrategy((username, password, done)=>{
-  pool.query('SELECT * FROM "users" WHERE email = $1', [username])
+  pool.query('SELECT * FROM "user" WHERE email = $1', [username])
   .then((result)=>{
     const user = result && result.rows && result.rows[0];
+    console.log('user--------------', user);
     if(user && encryptLib.comparePassword(password, user.password)){
       done(null, user);
-    } 
-    else {
+    } else {
       done(null, null);
     }
   })
