@@ -4,7 +4,6 @@ import loginMode from './loginModeReducer';
 import quote from './quoteReducer';
 import tracker from './trackerReducer';
 import user from './userReducer';
-import userDetails from './userDetailsReducer';
 
 const rootReducer = combineReducers({
   chart,
@@ -12,7 +11,6 @@ const rootReducer = combineReducers({
   quote,
   tracker,
   user,
-  userDetails,
 });
 
 export default rootReducer;

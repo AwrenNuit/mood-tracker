@@ -20,12 +20,6 @@ export default function App() {
     dispatch({type: 'FETCH_USER'});
   }, [dispatch]);
 
-  useEffect(() => {
-    if(user && user.id){
-      dispatch({ type: 'GET_USER_DETAILS', payload: user.id });
-    }
-  },[dispatch, user]);
-
   return (
     <Router>
       {user && user.id ?

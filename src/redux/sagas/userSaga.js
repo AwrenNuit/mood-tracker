@@ -44,7 +44,6 @@ function* putPassword(action){
 function* userSaga() {
   yield takeLatest(`CLOSE_ACCOUNT`, putCloseAccount);
   yield takeLatest(`FETCH_USER`, fetchUser);
-  yield takeLatest(`GET_USER_DETAILS`, getUserDetails);
   yield takeLatest(`PUT_USER_DETAILS`, putDetails);
   yield takeLatest(`PUT_USER_PASSWORD`, putPassword);
 }
