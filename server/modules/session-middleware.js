@@ -1,9 +1,24 @@
 const cookieSession = require('cookie-session');
-// REQUIRE SOME SORT OF WARNING FILE HERE
 
 const serverSessionSecret = () => {
   if(!process.env.SERVER_SESSION_SECRET || process.env.SERVER_SESSION_SECRET.length < 8){
-    // LOG A PROMPT TO CHANGE DOTENV HERE
+    console.log(`
+    ----------------------------
+    
+    *** WARNING ***
+    Your application is not very secure.
+    You need to set SERVER_SESSION_SECRET to a better secret
+    Please add SERVER_SESSION_SECRET to your .env file
+    
+    It should be
+    - longer than 8 characters
+    - random characters
+    - not words like "SoSuperSecret"
+    
+    If this warning is showing on Heroku,
+    add or change your SERVER_SESSION_SECRET environment variable!
+    
+    ----------------------------`);
   }
   return process.env.SERVER_SESSION_SECRET;
 }
