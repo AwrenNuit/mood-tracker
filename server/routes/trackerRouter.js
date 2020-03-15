@@ -15,9 +15,9 @@ router.get('/:id', (req, res)=>{
 });
 
 router.put('/', (req, res)=>{
-  const id = [req.body.id, req.body.food, req.body.movement, req.body.sleep, req.body.therapy];
+  const id = [req.body.id, req.body.food, req.body.meds, req.body.movement, req.body.pain, req.body.period, req.body.sleep, req.body.therapy, req.body.water];
   const sqlQuery = `UPDATE tracker
-                    SET food = $2, movement = $3, sleep = $4, therapy = $5
+                    SET food = $2, meds = $3, movement = $4, pain = $5, period = $6, sleep = $7, therapy = $8, water = $9
                     WHERE id = $1;`;
   pool.query(sqlQuery, id)
   .then(()=>res.sendStatus(200))
