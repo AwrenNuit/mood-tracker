@@ -5,8 +5,8 @@ const encryptLib = require('../modules/encryption');
 const { rejectUnauthenticated } = require('../modules/auth-middleware');
 const userStrategy = require('../strategies/user-strategy');
 
+
 router.get('/', (req, res) => {
-  console.log('GET---------------------------', req.user);
   res.send(req.user);
 });
 
@@ -22,7 +22,7 @@ router.get('/:id', (req, res)=>{
   });
 });
 
-router.post('/login', userStrategy.authenticate('local'), (req, res)=>{
+router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 });
 
