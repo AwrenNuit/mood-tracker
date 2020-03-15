@@ -10,18 +10,6 @@ router.get('/', (req, res) => {
   res.send(req.user);
 });
 
-router.get('/:id', (req, res)=>{
-  const id = [req.params.id];
-  const sqlQuery = `SELECT * FROM "user"
-                    WHERE id = $1;`;
-  pool.query(sqlQuery, id)
-  .then(result=>res.send(result.rows[0]))
-  .catch(error=>{
-    console.log('Error in /:id GET', error);
-    res.sendStatus(500);
-  });
-});
-
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 });

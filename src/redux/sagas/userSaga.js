@@ -14,16 +14,6 @@ function* fetchUser(action) {
   }
 }
 
-function* getUserDetails(action){
-  try {
-    const id = action.payload;
-    const response = yield axios.get(`/api/user/${id}`);
-    yield put({type: `SET_USER_DETAILS`, payload: response.data});
-  } catch(error) {
-    console.log('Error retrieving user details.', error);
-  }
-}
-
 function* putDetails(action){
   try{
     yield axios.put(`/api/user/details`, action.payload);
