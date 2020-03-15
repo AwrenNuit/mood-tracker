@@ -8,10 +8,7 @@ router.get('/:id', (req, res)=>{
                     WHERE id = $1;`;
   pool.query(sqlQuery, id)
   .then(result=>res.send(result.rows[0]))
-  .catch(error=>{
-    console.log('Error in / GET', error);
-    res.sendStatus(500);
-  });
+  .catch(()=>res.sendStatus(500));
 });
 
 router.put('/', (req, res)=>{
@@ -21,10 +18,7 @@ router.put('/', (req, res)=>{
                     WHERE id = $1;`;
   pool.query(sqlQuery, id)
   .then(()=>res.sendStatus(200))
-  .catch(error=>{
-    console.log('Error in / PUT', error);
-    res.sendStatus(500);
-  });
+  .catch(()=>res.sendStatus(500));
 });
 
 module.exports = router;
