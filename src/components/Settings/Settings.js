@@ -7,7 +7,6 @@ export default function Settings() {
   const dispatch = useCallback(useDispatch());
   const history = useHistory();
   const user = useSelector(state => state.user);
-  const userDetails = useSelector(state => state.userDetails);
   const tracker = useSelector(state => state.tracker);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmPasswordView, setConfirmPasswordView] = useState('password');
@@ -25,12 +24,10 @@ export default function Settings() {
 
   useEffect(()=>{
     dispatch({type: `GET_TRACKER`, payload: user.id});
-    dispatch({type: `GET_USER_DETAILS`, payload: user.id});
   }, [dispatch, user]);
 
   useEffect(()=>{
-    setEmail(userDetails.email);
-    setPassword(userDetails.password);
+    setEmail(user.email);
     if(tracker.food){
       setFood(tracker.food);
     }
@@ -55,7 +52,7 @@ export default function Settings() {
     if(tracker.water){
       setWater(tracker.water);
     }
-  }, [userDetails, tracker]);
+  }, [tracker]);
 
   const closeAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
