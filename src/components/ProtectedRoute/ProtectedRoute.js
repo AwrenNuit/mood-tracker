@@ -10,8 +10,6 @@ export const ProtectedRoute = props => {
 
   const {
     component: ComponentToProtect,
-    user,
-    loginMode,
     ...otherProps
   } = props;
 
