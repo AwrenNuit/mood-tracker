@@ -23,7 +23,9 @@ export default function Settings() {
   const [water, setWater] = useState(false);
 
   useEffect(()=>{
-    dispatch({type: `GET_TRACKER`, payload: user.id});
+    if(user){
+      dispatch({type: `GET_TRACKER`, payload: user.id});
+    }
   }, [dispatch, user]);
 
   useEffect(()=>{
@@ -52,7 +54,7 @@ export default function Settings() {
     if(tracker.water){
       setWater(tracker.water);
     }
-  }, [tracker]);
+  }, [tracker, user.email]);
 
   const closeAccount = () => {
     let popup = window.confirm(`Are you absolutely sure you want to close your account?`);
