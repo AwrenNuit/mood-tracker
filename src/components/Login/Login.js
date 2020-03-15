@@ -20,7 +20,7 @@ export default function Login() {
   const handleLogin = e => {
     e.preventDefault();
     if(email && password){
-      dispatch({type: `LOGIN`, payload: {password, email}});
+      dispatch({type: `LOGIN`, payload: {username: email, password}});
     }
     else {
       alert(`Invalid email and/or password`);
