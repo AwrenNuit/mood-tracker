@@ -68,6 +68,7 @@ export default function NewEntry() {
   return(
     <center>
       {/* overlay "before you begin...take a few full breaths, exhaling slowly" click to fade out */}
+      {/* could also lay out like storybook/diary pages, one fading into the next */}
       <h1>New Entry</h1>
       <form className="entry-form" onSubmit={handleSubmit}>
         <div>
