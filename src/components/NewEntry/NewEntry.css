@@ -6,7 +6,7 @@
   margin-top: 15px;
 }
 
-.entry-log-btn {
+/* .entry-log-btn {
   background-color: black;
   border: none;
   border-radius: 50%;
@@ -21,7 +21,7 @@
 
 .entry-log-btn:active {
   box-shadow: 0 0 20px pink;
-}
+} */
 
 .entry-radio-container {
   width: 110px;
