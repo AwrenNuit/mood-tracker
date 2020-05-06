@@ -6,6 +6,10 @@
   font-size: 1.4em;
 }
 
+.entry-form label {
+  font-size: 1.2em;
+}
+
 .entry-date-container {
   margin-top: 15px;
 }
@@ -15,7 +19,7 @@
 }
 
 .entry-radio-container {
-  width: 110px;
+  width: 120px;
   text-align: left;
 }
 
