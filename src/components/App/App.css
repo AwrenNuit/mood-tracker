@@ -43,25 +43,6 @@ h3 {
   color: #fff;
 }
 
-/* .btn-primary {
-  margin-top: 20px;
-  height: 50px;
-  width: 60px;
-  border: 6px solid #000;
-  background: transparent;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-primary:hover {
-  width: 90px;
-}
-
-.btn-primary:active {
-  box-shadow: 0 0 20px pink;
-  background-color: #ffe9ec;
-} */
-
 .btn-primary {
   background-color: #000;
   border: none;
