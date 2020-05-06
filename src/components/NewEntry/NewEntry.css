@@ -7,7 +7,7 @@
 }
 
 .entry-form label {
-  font-size: 1.2em;
+  font-size: 20px;
 }
 
 .entry-date-container {
@@ -29,5 +29,7 @@
 }
 
 .entry-textarea {
+  border: 3px solid black;
+  border-radius: 10px;
   margin: 15px;
 }
