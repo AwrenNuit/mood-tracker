@@ -34,5 +34,6 @@
 .entry-textarea {
   border: 3px solid black;
   border-radius: 10px;
+  font-size: 1em;
   margin: 15px;
 }
