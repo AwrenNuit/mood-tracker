@@ -10,6 +10,12 @@
   margin-top: 15px;
 }
 
+.entry-date {
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
 .mood-radio {
   margin: 15px;
 }

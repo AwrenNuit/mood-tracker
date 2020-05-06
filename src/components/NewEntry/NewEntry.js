@@ -74,7 +74,12 @@ export default function NewEntry() {
         <div>
           <h3>Which date is this entry for?</h3>
           <div className="entry-date-container">
-            <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} />
+            <input 
+              className="entry-date" 
+              type="date" 
+              value={date} 
+              onChange={(e)=>setDate(e.target.value)} 
+            />
           </div>
         </div>
         <div> 
