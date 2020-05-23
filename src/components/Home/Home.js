@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './Home.css';
 import HomeCalendar from '../HomeCalendar/HomeCalendar';
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
       <div>
         <HomeCalendar month={new Date().getMonth()} />
       </div>
-      <div>
+      <div className="home-quote">
         {quote.quote} {quote.source}
       </div>
     </center>
