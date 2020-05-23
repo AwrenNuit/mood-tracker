@@ -3,12 +3,13 @@
 }
 
 .login-register-heading {
+  font-size: 2.2rem;
   margin-bottom: 70px;
 }
 
 .login-register-hr {
+  color: #d3d3d3;
   width: 80%;
-  color: lightgrey;
 }
 
 .login-register-mailing-list {
@@ -16,8 +17,10 @@
 }
 
 .login-register-main-container {
-  max-width: 400px;
-  height: 600px;
-  background-color: lightyellow;
+  background-color: #ffffe0;
   box-shadow: 5px 5px 10px grey;
+  height: 500px;
+  max-width: 300px;
+  padding-top: 1rem;
+  margin-top: 2rem;
 }
