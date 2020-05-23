@@ -408,7 +408,7 @@ export default function NewEntry() {
           <h3>Any additional thoughts?</h3>
           <textarea 
             className="entry-textarea"
-            cols="30" 
+            cols="20" 
             rows="6" 
             maxLength="300"
             value={thoughts}
