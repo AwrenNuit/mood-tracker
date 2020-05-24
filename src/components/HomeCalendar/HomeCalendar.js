@@ -9,9 +9,36 @@ export default function HomeCalendar(props) {
   const [month, setMonth] = useState(monthList[props.month]);
   const [year, setYear] = useState(props.year);
 
+  const generateMonthTable = () => {
+    const firstDay = (new Date(year, props.month)).getDay();
+    let date = 1;
+    let output = [];
+
+    for(let i=0; i<6; i++) {
+      let cells = [];
+      for(let j=0; j<7; j++) {
+        if(i === 0 && j < firstDay) {
+          cells.push(<td key={j}></td>);
+        }
+        else if(date > (32 - new Date(year, props.month, 32).getDate())) {
+          break;
+        }
+        else {
+          cells.push(<td key={j}>{date}</td>);
+          if(date === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()) {
+            // add class to highlight/outline today's date
+          }
+          date++;
+        }
+      }
+      output.push(<tr key={i}>{cells}</tr>);
+    }
+    return output;
+  }
+
   return(
     <center>
-      <h3>{month}</h3>
+      <h3>{month} {year}</h3>
       <table>
         <thead>
           <tr>
@@ -25,42 +52,7 @@ export default function HomeCalendar(props) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-          </tr>
-          <tr>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-          </tr>
-          <tr>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-          </tr>
+          {generateMonthTable()}
         </tbody>
       </table>
     </center>
