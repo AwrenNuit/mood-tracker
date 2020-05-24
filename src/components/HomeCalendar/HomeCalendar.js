@@ -1,43 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function HomeCalendar(props) {
 
-  const chooseMonth = () => {
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState(props.year);
+
+  useEffect(() => {
     switch(props.month){
       case 0:
-        return 'January';
+        setMonth('January');
+        break;
       case 1:
-        return 'February';
+        setMonth('February');
+        break;
       case 2:
-        return 'March';
+        setMonth('March');
+        break;
       case 3:
-        return 'April';
+        setMonth('April');
+        break;
       case 4:
-        return 'May';
+        setMonth('May');
+        break;
       case 5:
-        return 'June';
+        setMonth('June');
+        break;
       case 6:
-        return 'July';
+        setMonth('July');
+        break;
       case 7:
-        return 'August';
+        setMonth('August');
+        break;
       case 8:
-        return 'September';
+        setMonth('September');
+        break;
       case 9:
-        return 'October';
+        setMonth('October');
+        break;
       case 10:
-        return 'November';
+        setMonth('November');
+        break;
       case 11:
-        return 'December';
+        setMonth('December');
+        break;
       default:
         break;
     }
-  }
+  }, []);
 
   return(
     <center>
-      <h3>{chooseMonth()}</h3>
+      <h3>{month}</h3>
       <table>
-        {/* <thead>
+        <thead>
           <tr>
             <th>Sun</th>
             <th>Mon</th>
@@ -47,7 +62,7 @@ export default function HomeCalendar(props) {
             <th>Fri</th>
             <th>Sat</th>
           </tr>
-        </thead> */}
+        </thead>
         <tbody>
           <tr>
             <td>1</td>

@@ -16,7 +16,7 @@ export default function Home() {
     <center>
       <h1>Mood Tracker</h1>
       <div>
-        <HomeCalendar month={new Date().getMonth()} />
+        <HomeCalendar month={new Date().getMonth()} year={new Date().getFullYear()} />
       </div>
       <div className="home-quote">
         {quote.quote} {quote.source}
