@@ -1,6 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './Settings.css';
 
 export default function Settings() {
 
@@ -105,7 +106,7 @@ export default function Settings() {
   }
 
   return(
-    <center>
+    <center className="settings-container">
       <h1>Settings</h1>
       <h3>Personal</h3>
         <form onSubmit={updatePersonalDetails}>
@@ -117,27 +118,29 @@ export default function Settings() {
             placeholder="email" 
           />
           <input 
-            className="text-input" 
+            className="settings-pass text-input" 
             type={passwordView} 
             value={password} 
             onChange={(e)=>setPassword(e.target.value)} 
             placeholder="password" 
           />
           <input 
+            className="show-pass"
             type="checkbox" 
             onChange={togglePasswordView} 
-          /> Show Password
+          /> <span>Show Password</span>
           <input 
-            className="text-input" 
+            className="settings-pass text-input" 
             type={confirmPasswordView} 
             value={confirmPassword} 
             onChange={(e)=>setConfirmPassword(e.target.value)} 
             placeholder="confirm password" 
           />
           <input 
+            className="show-pass"
             type="checkbox" 
             onChange={toggleConfirmPasswordView} 
-          /> Show Password
+          /> <span>Show Password</span>
           <br />
           <button className="btn-primary" type="submit">Save</button>
         </form>

@@ -1,0 +1,16 @@
+.settings-container h1 {
+  margin-bottom: -2rem;
+}
+
+.settings-container h3 {
+  margin-top: 3rem;
+}
+
+.settings-pass {
+  margin-bottom: 0.2rem;
+}
+
+.show-pass ~ span {
+  margin-top: -1rem;
+  font-size: 0.8rem;
+}
