@@ -2,33 +2,30 @@ import React, { useState } from 'react';
 
 export default function HomeCalendar(props) {
 
-  const monthList = [
-    "January", "February", "March", "April", "May", "June", "July", 
-    "August", "September", "October", "November", "December"
-  ];
+  const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const [month, setMonth] = useState(monthList[props.month]);
   const [year, setYear] = useState(props.year);
 
   const generateMonthTable = () => {
-    const firstDay = (new Date(year, props.month)).getDay();
-    let date = 1;
+    const firstOfTheMonth = (new Date(year, props.month)).getDay();
+    let dateOfTheMonth = 1;
     let output = [];
 
     for(let i=0; i<6; i++) {
       let cells = [];
       for(let j=0; j<7; j++) {
-        if(i === 0 && j < firstDay) {
+        if(i === 0 && j < firstOfTheMonth) {
           cells.push(<td key={j}></td>);
         }
-        else if(date > (32 - new Date(year, props.month, 32).getDate())) {
+        else if(dateOfTheMonth > (32 - new Date(year, props.month, 32).getDate())) {
           break;
         }
         else {
-          cells.push(<td key={j}>{date}</td>);
-          if(date === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()) {
+          cells.push(<td key={j}>{dateOfTheMonth}</td>);
+          if(dateOfTheMonth === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()) {
             // add class to highlight/outline today's date
           }
-          date++;
+          dateOfTheMonth++;
         }
       }
       output.push(<tr key={i}>{cells}</tr>);
