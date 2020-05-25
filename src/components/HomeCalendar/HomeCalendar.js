@@ -19,15 +19,17 @@ export default function HomeCalendar(props) {
       let cells = [];
       for(let j=0; j<7; j++) {
         if(i === 0 && j < firstOfTheMonth) {
-          cells.push(<td key={j}></td>);
+          cells.push(<td key={j} className="calendar-empty-cell"></td>);
         }
         else if(dateOfTheMonth > (32 - new Date(year, props.month, 32).getDate())) {
-          break;
+          cells.push(<td key={j} className="calendar-empty-cell"></td>)
         }
         else {
-          cells.push(<td key={j}>{dateOfTheMonth}</td>);
-          if(dateOfTheMonth === moDate && year === moYear && month === moMonth) {
-            // add class to highlight/outline today's date
+          if(dateOfTheMonth === moDate && year === moYear && props.month === moMonth) {
+            cells.push(<td key={j} className="calendar-today">{dateOfTheMonth}</td>);
+          }
+          else {
+            cells.push(<td key={j}>{dateOfTheMonth}</td>);
           }
           dateOfTheMonth++;
         }
@@ -40,7 +42,7 @@ export default function HomeCalendar(props) {
   return(
     <center>
       <h3>{month} {year}</h3>
-      <table>
+      <table id="calendar-table">
         <thead>
           <tr>
             <th>Sun</th>
