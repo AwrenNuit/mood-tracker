@@ -7,6 +7,9 @@ export default function HomeCalendar(props) {
   const [year, setYear] = useState(props.year);
 
   const generateMonthTable = () => {
+    const moDate = new Date().getDate();
+    const moYear = new Date().getFullYear();
+    const moMonth = new Date().getMonth();
     const firstOfTheMonth = (new Date(year, props.month)).getDay();
     let dateOfTheMonth = 1;
     let output = [];
@@ -22,7 +25,7 @@ export default function HomeCalendar(props) {
         }
         else {
           cells.push(<td key={j}>{dateOfTheMonth}</td>);
-          if(dateOfTheMonth === new Date().getDate() && year === new Date().getFullYear() && month === new Date().getMonth()) {
+          if(dateOfTheMonth === moDate && year === moYear && month === moMonth) {
             // add class to highlight/outline today's date
           }
           dateOfTheMonth++;
