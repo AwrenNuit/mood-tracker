@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* getChart(action){
   try{
-    const id = action.payload.id;
+    const id = action.payload;
     const response = yield axios.get(`/api/chart/${id}`);
     yield put({type: `SET_CHART`, payload: response.data});
   } catch(error){

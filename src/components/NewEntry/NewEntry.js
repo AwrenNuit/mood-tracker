@@ -46,24 +46,26 @@ export default function NewEntry() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const dataToSend = {
-      id: user.id,
-      challenge,
-      date,
-      food,
-      meds,
-      mood,
-      movement,
-      pain,
-      period,
-      sleep,
-      therapy,
-      thoughts,
-      water
-    };
+    let dataToSend = {id: user.id};
+    const variableList = [
+      challenge, date, food, meds, mood, movement, 
+      pain, period, sleep, therapy, thoughts, water
+    ];
+    const variableString = [
+      'challenge', 'date', 'food', 'meds', 'mood', 'movement', 
+      'pain', 'period', 'sleep', 'therapy', 'thoughts', 'water'
+    ]; 
+    for(let i=0; i< variableList.length; i++) {
+      if(variableList[i]) {
+        dataToSend = {...dataToSend, [variableString[i]]: variableList[i]};
+      }
+      else {
+        dataToSend = {...dataToSend, [variableString[i]]: null};
+      }
+    }
     dispatch({type: `POST_ENTRY`, payload: dataToSend});
-    history.push('/home');
-  }
+    // history.push('/home');
+  };
 
   return(
     <center>
