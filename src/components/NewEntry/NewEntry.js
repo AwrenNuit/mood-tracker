@@ -64,7 +64,7 @@ export default function NewEntry() {
       }
     }
     dispatch({type: `POST_ENTRY`, payload: dataToSend});
-    // history.push('/home');
+    history.push('/home');
   };
 
   return(

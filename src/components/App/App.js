@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { BrowserRouter as Router, Route, useLocation, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useLocation, Redirect, useHistory } from 'react-router-dom';
 import './App.css';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function App() {
   
+  const history = useHistory();
   const dispatch = useCallback(useDispatch());
   const location = useLocation();
   const user = useSelector(state => state.user);
@@ -19,6 +20,12 @@ export default function App() {
   useEffect(() => {
     dispatch({type: 'FETCH_USER'});
   }, [dispatch]);
+
+  useEffect(() => {
+    if(!user) {
+      history.push('/login');
+    }
+  }, [user && user.id]);
 
   return (
     <Router>
