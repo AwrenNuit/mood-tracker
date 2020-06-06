@@ -42,7 +42,28 @@ export default function HomeCalendar(props) {
             cells.push(<td key={j} className="calendar-today">{dateOfTheMonth}</td>);
           }
           else {
-            cells.push(<td key={j}>{dateOfTheMonth}</td>);
+            // cells.push(<td key={j}>{dateOfTheMonth}</td>);
+            for(let chartDate of mood) {
+              // turn into function
+              let formattedDate = '';
+              let formattedMonth = '';
+              if(+dateOfTheMonth < 10) {
+                formattedDate = `0${dateOfTheMonth}`;
+              }
+              else {
+                formattedDate = dateOfTheMonth;
+              }
+              if(+moDate < 10) {
+                formattedMonth = `0${moDate}`;
+              }
+              else {
+                formattedMonth = moDate;
+              }
+              /////////////////////////////////
+              if(chartDate.date.substring(0,10) === `${year}-${formattedMonth}-${formattedDate}`) {
+                console.log('hi');
+              }
+            }
           }
           dateOfTheMonth++;
         }
@@ -55,7 +76,6 @@ export default function HomeCalendar(props) {
   return(
     <center>
       <h3>{month} {year}</h3>
-      {JSON.stringify(mood)}
       <table id="calendar-table">
         <thead>
           <tr>
