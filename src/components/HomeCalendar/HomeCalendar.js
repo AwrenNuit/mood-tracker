@@ -22,7 +22,12 @@ export default function HomeCalendar(props) {
           cells.push(<td key={j} className="calendar-empty-cell"></td>);
         }
         else if(dateOfTheMonth > (32 - new Date(year, props.month, 32).getDate())) {
-          cells.push(<td key={j} className="calendar-empty-cell"></td>)
+          if(!cells[0]) {
+            break;
+          }
+          else {
+            cells.push(<td key={j} className="calendar-empty-cell"></td>);
+          }
         }
         else {
           if(dateOfTheMonth === moDate && year === moYear && props.month === moMonth) {
