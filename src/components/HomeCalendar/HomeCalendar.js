@@ -6,12 +6,13 @@ export default function HomeCalendar(props) {
 
   const dispatch = useDispatch();
   const mood = useSelector(state => state.calendar);
+  const user = useSelector(state => state.user);
   const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const [month, setMonth] = useState(monthList[props.month]);
   const [year, setYear] = useState(props.year);
 
   useEffect(() => {
-    dispatch({type: `SET_CALENDAR`});
+    dispatch({type: `GET_CALENDAR`, payload: user.id});
   }, []);
 
   const generateMonthTable = () => {
