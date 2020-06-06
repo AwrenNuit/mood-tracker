@@ -55,8 +55,7 @@ export default function HomeCalendar(props) {
   return(
     <center>
       <h3>{month} {year}</h3>
-      {/* {JSON.stringify(mood)} */}
-      )}
+      {JSON.stringify(mood)}
       <table id="calendar-table">
         <thead>
           <tr>
