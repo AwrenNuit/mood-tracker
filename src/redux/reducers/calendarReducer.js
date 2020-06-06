@@ -1,0 +1,1 @@
+const calendarReducer = (state=[], action) => action.type === `SET_CALENDAR` ? action.payload : state;

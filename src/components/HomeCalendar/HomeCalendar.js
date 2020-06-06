@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './HomeCalendar.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function HomeCalendar(props) {
 
+  const dispatch = useDispatch();
+  const mood = useSelector(state => state.calendar);
   const monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const [month, setMonth] = useState(monthList[props.month]);
   const [year, setYear] = useState(props.year);
+
+  useEffect(() => {
+    dispatch({type: `SET_CALENDAR`});
+  }, []);
 
   const generateMonthTable = () => {
     const moDate = new Date().getDate();
@@ -47,6 +54,8 @@ export default function HomeCalendar(props) {
   return(
     <center>
       <h3>{month} {year}</h3>
+      {/* {JSON.stringify(mood)} */}
+      )}
       <table id="calendar-table">
         <thead>
           <tr>
