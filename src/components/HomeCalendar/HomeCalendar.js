@@ -41,29 +41,8 @@ export default function HomeCalendar(props) {
           if(dateOfTheMonth === moDate && year === moYear && props.month === moMonth) {
             cells.push(<td key={j} className="calendar-today">{dateOfTheMonth}</td>);
           }
-          else {
-            // cells.push(<td key={j}>{dateOfTheMonth}</td>);
-            for(let chartDate of mood) {
-              // turn into function
-              let formattedDate = '';
-              let formattedMonth = '';
-              if(+dateOfTheMonth < 10) {
-                formattedDate = `0${dateOfTheMonth}`;
-              }
-              else {
-                formattedDate = dateOfTheMonth;
-              }
-              if(+moDate < 10) {
-                formattedMonth = `0${moDate}`;
-              }
-              else {
-                formattedMonth = moDate;
-              }
-              /////////////////////////////////
-              if(chartDate.date.substring(0,10) === `${year}-${formattedMonth}-${formattedDate}`) {
-                console.log('hi');
-              }
-            }
+          else {            
+            cells.push(<td key={j} className={setCalendarClassFromMoodChart(dateOfTheMonth, moMonth+1)}>{dateOfTheMonth}</td>);
           }
           dateOfTheMonth++;
         }
@@ -71,6 +50,28 @@ export default function HomeCalendar(props) {
       output.push(<tr key={i}>{cells}</tr>);
     }
     return output;
+  }
+
+  const setCalendarClassFromMoodChart = (day, month) => {
+    for(let chartDate of mood) {
+      let formattedDay = '';
+      let formattedMonth = '';
+      if(+day < 10) {
+        formattedDay = `0${day}`;
+      }
+      else {
+        formattedDay = day;
+      }
+      if(month < 10) {
+        formattedMonth = `0${month}`;
+      }
+      else {
+        formattedMonth = month;
+      }
+      if(chartDate.date.substring(0,10) === `${year}-${formattedMonth}-${formattedDay}`) {
+        return chartDate.mood;
+      }
+    }
   }
 
   return(

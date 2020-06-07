@@ -26,3 +26,15 @@
   width: 25px;
   z-index: -1;
 }
+
+.Great {
+  background-color: green;
+}
+
+.Meh {
+  background-color: orange;
+}
+
+.Bad {
+  background-color: red;
+}
