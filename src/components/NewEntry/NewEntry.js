@@ -44,7 +44,7 @@ export default function NewEntry() {
     setDate(`${year}-${month}-${day}`);
   }, []);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     let dataToSend = {id: user.id};
     const variableList = [
@@ -63,7 +63,8 @@ export default function NewEntry() {
         dataToSend = {...dataToSend, [variableString[i]]: null};
       }
     }
-    dispatch({type: `POST_ENTRY`, payload: dataToSend});
+    await dispatch({type: `POST_ENTRY`, payload: dataToSend});
+    await dispatch({type: `GET_CALENDAR`, payload: user.id})
     history.push('/home');
   };
 
