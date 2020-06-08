@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './NewEntry.css';
+import RadioBtn from '../RadioBtn/RadioBtn';
 
 export default function NewEntry() {
 
@@ -88,97 +89,57 @@ export default function NewEntry() {
         <div> 
           <h3>How are you feeling today?</h3>
           <div className="entry-radio-container">
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="mood" 
-                value="Great" 
-                onChange={(e)=>setMood(e.target.value)} 
-              />
-              Great
-            </label>
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="mood" 
-                value="Meh" 
-                onChange={(e)=>setMood(e.target.value)} 
-              />
-              Meh
-            </label>
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="mood" 
-                value="Bad" 
-                onChange={(e)=>setMood(e.target.value)} 
-              />
-              Bad
-            </label>
+            <RadioBtn
+              name="mood"
+              text="Great"
+              setValue={setMood}
+            />
+            <RadioBtn
+              name="mood"
+              text="Meh"
+              setValue={setMood}
+            />
+            <RadioBtn
+              name="mood"
+              text="Bad"
+              setValue={setMood}
+            />
           </div>
         </div>
         <div>
           <h3>How challenging was today?</h3>
           <div className="entry-radio-container">
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="challenge" 
-                value="Harder" 
-                onChange={(e)=>setChallenge(e.target.value)} 
-              />
-              Harder
-            </label>
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="challenge" 
-                value="Average"
-                onChange={(e)=>setChallenge(e.target.value)} 
-              />
-              Average
-            </label>
-            <label className="entry-radio-label">
-              <input 
-                type="radio" 
-                className="mood-radio"
-                name="challenge" 
-                value="Easier" 
-                onChange={(e)=>setChallenge(e.target.value)} 
-              />
-              Easier
-            </label>
+            <RadioBtn
+              name="challenge"
+              text="Harder"
+              setValue={setChallenge}
+            />
+            <RadioBtn
+              name="challenge"
+              text="Average"
+              setValue={setChallenge}
+            />
+            <RadioBtn
+              name="challenge"
+              text="Easier"
+              setValue={setChallenge}
+            />
           </div>
         </div>
         {tracker.food ?
           <div>
             <h3>Did you meet your food goals?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="food" 
-                  value="Yes" 
-                  onChange={(e)=>setFood(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="food" 
-                  value="No" 
-                  onChange={(e)=>setFood(e.target.value)} 
-                />
-                No
-              </label>
+              <RadioBtn
+                name="food"
+                text="Yes"
+                setValue={setFood}
+              />
+              <RadioBtn
+                name="food"
+                text="No"
+                setValue={setFood}
+              />
             </div>
           </div>
         :
@@ -188,26 +149,16 @@ export default function NewEntry() {
           <div>
             <h3>Did you take your meds?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="meds" 
-                  value="Yes" 
-                  onChange={(e)=>setMeds(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="meds" 
-                  value="No" 
-                  onChange={(e)=>setMeds(e.target.value)} 
-                />
-                No
-              </label>
+              <RadioBtn
+                name="meds"
+                text="Yes"
+                setValue={setMeds}
+              />
+              <RadioBtn
+                name="meds"
+                text="No"
+                setValue={setMeds}
+              />
             </div>
           </div>
         :
@@ -217,26 +168,16 @@ export default function NewEntry() {
           <div>
             <h3>Did you meet your movement goals?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio"
-                  className="mood-radio" 
-                  name="movement" 
-                  value="Yes" 
-                  onChange={(e)=>setMovement(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="movement" 
-                  value="No" 
-                  onChange={(e)=>setMovement(e.target.value)} 
-                />
-                No
-              </label>
+            <RadioBtn
+              name="movement"
+              text="Yes"
+              setValue={setMovement}
+            />
+            <RadioBtn
+              name="movement"
+              text="No"
+              setValue={setMovement}
+            />
             </div>
           </div>
         :
@@ -246,36 +187,21 @@ export default function NewEntry() {
           <div>
             <h3>How much chronic pain did you have?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="pain" 
-                  value="More"
-                  onChange={(e)=>setPain(e.target.value)} 
-                />
-                More
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="pain" 
-                  value="Average"
-                  onChange={(e)=>setPain(e.target.value)} 
-                />
-                Average
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="pain" 
-                  value="Less" 
-                  onChange={(e)=>setPain(e.target.value)} 
-                />
-                Less
-              </label>
+            <RadioBtn
+              name="pain"
+              text="More"
+              setValue={setPain}
+            />
+            <RadioBtn
+              name="pain"
+              text="Average"
+              setValue={setPain}
+            />
+            <RadioBtn
+              name="pain"
+              text="Less"
+              setValue={setPain}
+            />
             </div>
           </div>
         :
@@ -285,26 +211,16 @@ export default function NewEntry() {
           <div>
             <h3>Are you on your period?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio"
-                  className="mood-radio" 
-                  name="period" 
-                  value="Yes" 
-                  onChange={(e)=>setPeriod(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="period" 
-                  value="No" 
-                  onChange={(e)=>setPeriod(e.target.value)} 
-                />
-                No
-              </label>
+              <RadioBtn
+                name="period"
+                text="Yes"
+                setValue={setPeriod}
+              />
+              <RadioBtn
+                name="period"
+                text="No"
+                setValue={setPeriod}
+              />
             </div>
           </div>
         :
@@ -314,36 +230,21 @@ export default function NewEntry() {
           <div>
             <h3>How well did you sleep last night?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="sleep" 
-                  value="Great" 
-                  onChange={(e)=>setSleep(e.target.value)} 
-                />
-                Great
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="sleep" 
-                  value="Meh" 
-                  onChange={(e)=>setSleep(e.target.value)} 
-                />
-                Meh
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="sleep" 
-                  value="Bad" 
-                  onChange={(e)=>setSleep(e.target.value)} 
-                />
-                Bad
-              </label>
+              <RadioBtn
+                name="sleep"
+                text="Great"
+                setValue={setSleep}
+              />
+              <RadioBtn
+                name="sleep"
+                text="Meh"
+                setValue={setSleep}
+              />
+              <RadioBtn
+                name="sleep"
+                text="Bad"
+                setValue={setSleep}
+              />
             </div>
           </div>
         :
@@ -353,26 +254,16 @@ export default function NewEntry() {
           <div>
             <h3>Did you have therapy today?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="therapy" 
-                  value="Yes" 
-                  onChange={(e)=>setTherapy(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="therapy" 
-                  value="No" 
-                  onChange={(e)=>setTherapy(e.target.value)} 
-                />
-                No
-              </label>
+              <RadioBtn
+                name="therapy"
+                text="Yes"
+                setValue={setTherapy}
+              />
+              <RadioBtn
+                name="therapy"
+                text="No"
+                setValue={setTherapy}
+              />
             </div>
           </div>
         :
@@ -382,26 +273,16 @@ export default function NewEntry() {
           <div>
             <h3>Did you drink enough water?</h3>
             <div className="entry-radio-container">
-              <label className="entry-radio-label">
-                <input 
-                  type="radio"
-                  className="mood-radio" 
-                  name="water" 
-                  value="Yes" 
-                  onChange={(e)=>setWater(e.target.value)} 
-                />
-                Yes
-              </label>
-              <label className="entry-radio-label">
-                <input 
-                  type="radio" 
-                  className="mood-radio"
-                  name="water" 
-                  value="No" 
-                  onChange={(e)=>setWater(e.target.value)} 
-                />
-                No
-              </label>
+              <RadioBtn
+                name="water"
+                text="Yes"
+                setValue={setWater}
+              />
+              <RadioBtn
+                name="water"
+                text="No"
+                setValue={setWater}
+              />
             </div>
           </div>
         :
