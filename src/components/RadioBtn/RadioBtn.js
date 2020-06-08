@@ -12,6 +12,6 @@ export default function RadioBtn(props) {
         onChange={(e)=>props.setValue(e.target.value)} 
       />
       {props.text}
-    </label>
+    </label> urighdugbdfgj
   );
 }
